@@ -1,0 +1,56 @@
+#Header{
+    width:100%;
+    height:20%;
+    border: 1px solid black;
+    position: relative;
+    z-index:0;
+	left:0px;
+	right:0px;
+}
+#Logo{
+    width:25%;
+    height:20%;
+    border: 1px solid green;
+    position: relative;
+    z-index: 1;
+    color: yellow;
+    font: 20pt impact;
+    text-align: center;
+    background-color: red;
+}
+#map{
+    /*FIXES REQUIRED:
+    1. Remove gap between header div and map
+    2. Make size of div relative to page itself. 
+    */
+    position:relative;
+    width: 100%;
+    height:800px;
+    z-index:0;
+    background-color: green;
+}
+
+#instructions{
+    position:relative;
+    z-index:1;
+    width: 40%;
+    left:30%;
+    right:30%;
+    top:20%;
+    height:45%;
+    background-color:red;
+    border 1-px solid orange;
+    
+}
+
+#legend{
+    /*Left-Side Legend, used to show information about visible polygons
+    */
+    
+}
+
+#info-panel{
+    /*Right-Side Info Panel, used to indicate information about the place the user clicked on */
+    
+    
+}
