@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link type="text/css", rel="stylesheet", href="style.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script src="anim.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+ <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+
+
+</head>
+<body>
+    <div id="map">
+    	<script>
+var map = L.map('map').setView([51.505, -0.09], 13);
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/MapID/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18
+}).addTo(map);
+</script>
+        <div id="title">Title of site</div>
+        <!-- Two tabs on the map, which slide in from the right-->
+        <div id="rightTabs">
+            <ol id="toc">
+                <li id="instr">1</li>
+                <li id="info">2</li>
+                </ol>
+        </div>
+        <div id="legendTab"></div>
+    </div>
+    </body>
+</html>
