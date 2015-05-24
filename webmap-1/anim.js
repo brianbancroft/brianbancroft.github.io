@@ -15,21 +15,21 @@ $(document).ready(function () {
 		$('#infoPanel').css('visibility','visible');
     });
 	
-	$('#instrPanel').click(function(){
-		$(this).css('visibility','hidden');
+	$('#instrPanel .close').click(function(){
+		$('#instrPanel').css('visibility','hidden');
 		$('li#info').css('visibility','visible');
 		$('li#instr').css('visibility','visible');
 	
 	});
-	$('#infoPanel').click(function(){
-		$(this).css('visibility','hidden');
+	$('#infoPanel .close').click(function(){
+		$('#infoPanel').css('visibility','hidden');
 		$('li#info').css('visibility','visible');
 		$('li#instr').css('visibility','visible');
 	
 	});
 	
-	$('#legendPanel').click(function(){
-		$(this).css('visibility','hidden');
+	$('#legendPanel .close').click(function(){
+		$('#legendPanel').css('visibility','hidden');
 		$('#legendTab').css('visibility','visible');
 	});
 

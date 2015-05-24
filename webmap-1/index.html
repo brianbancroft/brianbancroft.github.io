@@ -6,8 +6,8 @@
 <link type="text/css", rel="stylesheet", href="style.css">
 <script src="jquery-1.11.3.min.js"></script>
 <script src="anim.js"></script>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<link rel="stylesheet" href="leaflet.css" />
+ <script src="leaflet.js"></script>
 
 
 
@@ -17,7 +17,7 @@
     	<script>
 var map = L.map('map').setView([51.505, -0.09], 13);
 L.tileLayer('http://{s}.tiles.mapbox.com/v3/MapID/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'bork bork bork',
     maxZoom: 18
 }).addTo(map);
 </script>
@@ -31,12 +31,12 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/MapID/{z}/{x}/{y}.png', {
                 </ol>
              
         </div>
-        <div id="infoPanel"><p>Information about clicked feature</p></div>
-        <div id="instrPanel"><p>Instructions</p></div>
+        <div id="infoPanel"><div class="close"></div><p>Information about clicked feature</p></div>
+        <div id="instrPanel"><div class="close"></div><p>Instructions</p></div>
  
         
         <div id="legendTab"></div><br>
-        <div id="legendPanel"><p>Legend Selector</p></div>
+        <div id="legendPanel"><div class="close"></div><p>Legend Selector</p></div>
 
 
     </div>
