@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .infowindow-custom{ 
+        position: relative;
+        width: 350px;
+		min-height:300px;
+        background-color: white;
+        margin-bottom: 11px;
+      }
+      .cartodb-popup-close-button {
+        position: absolute;
+        top: -12px;
+        right: -11px;
+        width: 26px;
+        height: 26px;
+        background: url('http://libs.cartodb.com/cartodb.js/v3/themes/img/light.png') no-repeat 0 -23px;
+        text-indent: -9999px;
+        font-size: 0;
+        line-height: 0;
+        opacity: 1;
+        text-transform: uppercase;
+        z-index: 3;
+      }
+      .cartodb-popup-tip-container {
+        position: absolute;
+        bottom: -3px;
+        left: 23px;
+        width: 16px;
+        height: 14px;
+        background: url('http://libs.cartodb.com/cartodb.js/v3/themes/img/light.png') no-repeat -23px -7px;
+        text-indent: -9999px;
+        font-size: 0;
+        line-height: 0;
+        opacity: 1;
+        z-index: 3;
+      }
+	  .imageheight {
+	    min-height: 300px;
+	  }
+	  
+      blockquote {
+        display: hidden;
+      }
+      .cartodb-popup-content {
+        min-height: 80px;
+      }
+    </style>
+
+    <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+    <![endif]-->
+
+  </head>
+    
+  <body>
+    <div id="map"></div>
+  </body>
+
+  <script type="infowindow/html" id="infowindow_template">
+    <div class="cartodb-popup header with-image v2" data-cover="true">
+		<div class="infowindow-custom" >
+		  <a href="#close" class="cartodb-popup-close-button close">x</a>
+		  <div class="cartodb-popup-header">
+			<div class="cover">
+			  <div id="spinner"></div>
+			  <div class="image_not_found"> <i></i> <a href="{{image}}" class="help">Non-valid picture URL</a></div>
+			  <span class="separator"></span>
+			  <div class="shadow"></div>
+			  <img class="imageheight" src="{{image}}" />
+			</div>
+	  	  </div>
+		  <div class="cartodb-popup-content">
+			<div class="content" style="padding:20px">
+			  {{content.data.name}}
+			</div>
+		  </div>
+		  <div class="cartodb-popup-tip-container"></div>
+		</div>
+	</div>
+  </script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.0.05-dev/cartodb.js"></script>
+  <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <script>
+    function main() {
+        var map = L.map('map', { 
+          zoomControl: false,
+          center: [60.305, -99.668],
+          zoom: 3
+        });
+        // add a nice baselayer from Stamen 
+        L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+          attribution: 'Stamen'
+        }).addTo(map);
+        cartodb.createLayer(map, 'https://brian2073.cartodb.com/api/v2/viz/92b67dd2-55c0-11e5-9030-0e0c41326911/viz.json')
+         .addTo(map)
+         .on('done', function(layer) {
+           // get sublayer 0 and set the infowindow template
+           var sublayer = layer.getSubLayer(0);
+           sublayer.infowindow.set('template', $('#infowindow_template').html());
+          }).on('error', function() {
+            console.log("some error occurred");
+          });
+    }
+    window.onload = main;
+  </script>
+
+</html>
