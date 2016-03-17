@@ -4,5 +4,11 @@ $(document).ready(function(){
 
 
 
+	$('#ingredients ul li').click(function()
+	{
+		console.log("Clicked")
+		$(this).toggleClass("checked")
+
+	});
 
 });
