@@ -1,0 +1,7 @@
+def length_finder(input_array)
+  i = []
+  input_array.each do |j| 
+    i.push(j.length)
+  end
+  return i
+end

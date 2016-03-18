@@ -8,6 +8,7 @@ body{
 	border-radius:100px;
 	margin: 0 auto;
 	box-shadow: 10px 10px 5px #444;
+	font-family: 'Archivo Narrow', sans-serif;	
 	
 
 }
@@ -17,6 +18,10 @@ h1{
 	color: #333;;
 	text-shadow: 2px 2px 2px #eee;
 	text-align:center;
+	font-size:60px;
+	letter-spacing: 18px;
+	text-shadow: 2px 2px #ccc;
+	
 
 }
 
@@ -25,8 +30,9 @@ h1{
 }
 #intropara p{
 		height:15em;
-		padding-top:6em;
+		padding-top:60px;
 		padding-right:6em;
+		font-size:1.5em
 	
 }
 
@@ -44,6 +50,7 @@ font-family: 'Archivo Narrow', sans-serif;
 }
 p{
 font-family: 'Archivo Narrow', sans-serif;
+
 }
 
 
@@ -52,6 +59,8 @@ em{
 }
 section{
 	border-top:1px solid #ccc;
+	width:95%;
+	margin: 0 auto;
 
 }
 
@@ -150,7 +159,7 @@ ul{
 	width:760px;
 	margin-bottom: 20px;
 	overflow:hidden;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid #fff;
 }
 
 
@@ -194,6 +203,20 @@ ul{
 	padding-bottom:14em;
 
 }
+#imageHide{
+	text-align:center;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:12px;
+	letter-spacing:3px;
+	font-style:italic;
+}
+#imageShow{
+	text-align:center;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:12px;
+	letter-spacing:3px;
+	font-style:italic;	
+}
 #intropara{
 vertical-align: middle;
 }
@@ -223,6 +246,9 @@ width: 100%;
 #ingredients_image{
 	width:20%;
 	height:auto;
+	margin-left:8%;
+	margin-top:7%;
+
 }
 #intro_image{
 	clip: rect(10px,60px,0px,0px);
