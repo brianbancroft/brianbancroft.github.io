@@ -81,6 +81,7 @@ ul{
 	padding-right:9px;
 	padding-left:10px;
 	border-radius:5px;
+	font-size: 11pt;
 }
 #ingredients ul li.unchecked{
 	background-color:white;
