@@ -17,8 +17,8 @@ $(document).ready(function(){
 		$('#imageHide').show();
 		$('#imageShow').hide();
 	})
-	$('ol li').click(function(){
-		$('ol li').css('background-color',"#eee");
+	$('ol li p').click(function(){
+		$('ol li p').css('background-color',"#eee");
 		$(this).css('background-color',"orange")
 
 	})
