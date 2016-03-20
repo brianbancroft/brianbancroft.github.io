@@ -156,6 +156,11 @@ ul{
 	margin-left:40px;
 	margin-right:40px;
 }
+#directions ol li p:hover{
+	color:#a3a;
+	font-size:12.5pt;
+	transition: all 3s;
+}
 
 #directions ol li img{
 	width:500px;
