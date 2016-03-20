@@ -20,28 +20,16 @@ h1{
 	text-shadow: 2px 2px #ccc;
 }
 
-#intropara{
-	height: 16em;
-}
-#intropara p{
-		height:15em;
-		padding-top:60px;
-		padding-right:6em;
-		font-size:1.5em	
-}
-p#postscript{
-	padding-bottom:12px
-
-}
-
 h2{
 text-align: center;
 font-family: 'Archivo Narrow', sans-serif;
 }
+
 h3{
 text-align: left;
 font-family: 'Archivo Narrow', sans-serif;
 }
+
 p{
 font-family: 'Archivo Narrow', sans-serif;
 }
@@ -51,14 +39,36 @@ section{
 	width: 1000px;
 	margin: 0 auto;
 }
+
 ul{
 	list-style-type:none;
+}
+
+.section_header{
+	border-bottom-width: 1px;
+	border-bottom-color: #999;
+	border-bottom-left-radius: 3em;
+	border-bottom-right-radius: 3em;
+}
+
+#intro{
+	padding-bottom:80px;
 
 }
+
+#intro div p{
+		padding-top:60px;
+		padding-right:30px;
+		font-size:16pt;
+}
+
+p#postscript{
+	padding-bottom:12px
+}
+
 #ingredients{
 	height:650px;
 }
-
 
 #ingredients ul{
 	margin-bottom: 20px;
@@ -68,6 +78,7 @@ ul{
 	padding-top:30px;
 	width:650px;
 }
+
 #ingredients ul li{
 	line-height: 1.5em;
 	border: 0.5px solid black;
@@ -83,12 +94,15 @@ ul{
 	border-radius:5px;
 	font-size: 11pt;
 }
+
 #ingredients ul li.unchecked{
 	background-color:white;
 }
+
 #ingredients ul li.checked{
 	background-color:#eee
 }
+
 #ingredients ul li.unchecked:before{
 	/*all this for an orange circle!*/
 	content:"\2D54";
@@ -106,6 +120,7 @@ ul{
 	text-shadow: 1px 1px #ff0000;
 	vertical-align:middle;
 }
+
 #ingredients ul li.checked:before{
 	content:"\2713";
 	padding-right:6.5px;
@@ -152,7 +167,6 @@ ul{
 
 
 #directions ol{
-	
 	margin-left:40px;
 	margin-right:40px;
 }
@@ -169,13 +183,7 @@ ul{
 	margin-top: 8px;
 	margin-bottom: 10px;
 }
-/* Paragraph ID's */'
 
-
-#intro{
-	padding-bottom:14em;
-
-}
 p#imageHide{
 	text-align:center;
 	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -196,20 +204,6 @@ p#imageHide:hover{
 #imageShow:hover{
 	text-decoration: underline;
 }
-
-#footer{
-height:40px; bottom:0;
-min-height: 40px;
-width: 100%;
-}
-
-.section_header{
-	border-bottom-width: 1px;
-	border-bottom-color: #999;
-	border-bottom-left-radius: 3em;
-	border-bottom-right-radius: 3em;
-}
-
 
 .food_image{
 	box-shadow: 10px 10px 5px #ccc;
