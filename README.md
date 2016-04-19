@@ -1,6 +1,4 @@
 # brianbancroft.github.io
-My internet space. 
+My internet space.
 
-I've just done a quick round of housecleaning. 
-
-
+I've just done a quick round of housecleaning.
