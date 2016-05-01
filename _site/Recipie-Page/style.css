@@ -1,0 +1,228 @@
+body{
+	background: #666;
+}
+#page{
+	background: #eee;
+	width:1100px;
+	border: 2px solid black;
+	border-radius:100px;
+	margin: 0 auto;
+	box-shadow: 10px 10px 5px #444;
+	font-family: 'Archivo Narrow', sans-serif;	
+}
+h1{
+	font-family: 'Archivo Narrow', sans-serif;
+	color: #333;;
+	text-shadow: 2px 2px 2px #eee;
+	text-align:center;
+	font-size:60px;
+	letter-spacing: 18px;
+	text-shadow: 2px 2px #ccc;
+}
+
+h2{
+text-align: center;
+font-family: 'Archivo Narrow', sans-serif;
+}
+
+h3{
+text-align: left;
+font-family: 'Archivo Narrow', sans-serif;
+}
+
+p{
+font-family: 'Archivo Narrow', sans-serif;
+}
+
+section{
+	border-top:1px solid #ccc;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+ul{
+	list-style-type:none;
+}
+
+.section_header{
+	border-bottom-width: 1px;
+	border-bottom-color: #999;
+	border-bottom-left-radius: 3em;
+	border-bottom-right-radius: 3em;
+}
+
+#intro{
+	padding-bottom:80px;
+
+}
+
+#intro div p{
+		padding-top:60px;
+		padding-right:30px;
+		font-size:16pt;
+}
+
+p#postscript{
+	padding-bottom:12px
+}
+
+#ingredients{
+	height:650px;
+}
+
+#ingredients ul{
+	margin-bottom: 20px;
+	overflow: hidden;
+	border-top: 1px solid #ccc;
+	float:left;
+	padding-top:30px;
+	width:650px;
+}
+
+#ingredients ul li{
+	line-height: 1.5em;
+	border: 0.5px solid black;
+	float:left;
+	display:inline-block;
+	width: 280px;
+	height: 55px;
+	line-height:55px;
+	margin-right:5px;
+	margin-top: 5px;
+	padding-right:9px;
+	padding-left:10px;
+	border-radius:5px;
+	font-size: 11pt;
+}
+
+#ingredients ul li.unchecked{
+	background-color:white;
+}
+
+#ingredients ul li.checked{
+	background-color:#eee
+}
+
+#ingredients ul li.unchecked:before{
+	/*all this for an orange circle!*/
+	content:"\2D54";
+	padding-right:5px;
+	padding-left:5px;
+	margin-right:10px;
+	background-color:#f60;
+  	height:45px;
+  	width:45px;
+	text-align: center;
+	line-height:47px;
+    border-radius:100px;
+	font-size:30px;
+	color:white;
+	text-shadow: 1px 1px #ff0000;
+	vertical-align:middle;
+}
+
+#ingredients ul li.checked:before{
+	content:"\2713";
+	padding-right:6.5px;
+	padding-left:6.5px;
+	margin-right:10px;
+	background-color:#0c6;
+    height:45px;
+    width:45px;
+    text-align: center;
+    line-height:45px;
+    border-radius:100px;
+    font-size:30px;
+    color:white;
+    text-shadow: 1px 1px #00aa00;
+}
+
+#ingredients ul li:hover{
+	color:orange;
+	transition: all 2s;
+}
+
+#directions ul{
+	width:760px;
+	margin-bottom: 40px;
+	margin-left:100px;
+	overflow:hidden;
+	border-top: 1px solid #ddd;
+	text-align:center;
+}
+
+#directions ul li{
+	display: inline-block;
+	margin-right: 2em;
+	margin-left: ;
+	padding: 1em;
+	padding-right: 3em;
+	border-right: solid 1px #ddd;
+}
+
+#directions ul li:last-child{
+	border-right: 0px;
+	padding-right:0;
+}
+
+
+#directions ol{
+	margin-left:40px;
+	margin-right:40px;
+}
+#directions ol li p:hover{
+	color:#a3a;
+	font-size:12.5pt;
+	transition: all 3s;
+}
+
+#directions ol li img{
+	width:500px;
+	margin-left:160px;
+	display:block;
+	margin-top: 8px;
+	margin-bottom: 10px;
+}
+
+p#imageHide{
+	text-align:center;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:12px;
+	letter-spacing:3px;
+	font-style:italic;
+}
+p#imageHide:hover{
+		text-decoration: underline;
+}
+#imageShow{
+	text-align:center;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:12px;
+	letter-spacing:3px;
+	font-style:italic;	
+}
+#imageShow:hover{
+	text-decoration: underline;
+}
+
+.food_image{
+	box-shadow: 10px 10px 5px #ccc;
+	border-radius: 80px;
+	height:auto;
+	margin-right:auto;
+}
+
+#ingredients_image{
+	width:310px;
+	height:auto;
+	margin-top:130px
+	
+}
+#intro_image{
+	width: 350px;
+	height:auto;
+	float:left;
+	margin-right: 60px;
+	margin-top: 21px;
+}
+
