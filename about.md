@@ -1,15 +1,14 @@
 ---
 layout: page
-title: About
+title: WHAT IS THIS?
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+ Oh what is this thing?
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+So what we have here is just the general page for my blog/portfolio,
+and what it's eventually going to be.
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+My name is **Brian**, and I currently have an old site at brianbancroft.ca.
+Eventually, this is going to be brianbancroft.ca - as it should be. The old
+site was this oldwordpress thing, where this is new, and hexy-sexy.
