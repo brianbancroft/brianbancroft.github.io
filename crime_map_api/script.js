@@ -1,18 +1,5 @@
 // MAP INITIALIZATION
 
-function displayResult(){
-	var $dataFields = $('.textpopulate');
-	$dataFields.fadeOut('slow');
-	$dataFields.html('');
-
-	data.forEach(function(crime) {
-	var template = Handlebars.compile(resultTemplate);
-	var html = template(crime);
-	$dataFields.append(html);
-});
-}
-
-
 $(document).ready(function(){
 
 		var mymap = L.map('mapid').setView([52.629729, -1.131592], 15);
@@ -26,37 +13,82 @@ $(document).ready(function(){
 		}).addTo(mymap);
 
 		var crimeMarkers = L.layerGroup([]);
+		//counts for various crimes
 		var crimeCount = 0;
+		var asbCount = 0; //Antisocial Behaviour
+		var burgCount = 0;
+		var cdaCount = 0; //In future britian, it's a crime to be Canadian (criminal damage arson)
+		var drugsCount = 0;
+		var theftCount = 0;
+		var pdwCount = 0; //Weapons charges
+		var robCount = 0;
+		var shopliftCount = 0;
+		var vehCount = 0; // Vehicle Crimes
+		var violentCount = 0;
+		var otherCount = 0;
 		crimeMarkers.addTo(mymap);
 
 
+		function countCalc(crime){
+			crimeCount += 1;
+			switch(crime.category) {
+		    case 'anti-social-behaviour':
+		        asbCount += 1;
+		        break;
+		    case 'burglary':
+		        burgCount += 1;
+		        break;
+				case 'criminal-damage-arson':
+		        cdaCount += 1;
+		        break;
+				case 'drugs':
+						drugsCount += 1;
+		        break;
+				case 'other-theft':
+		        theftCount += 1;
+		        break;
+				case 'public-disorder-weapons':
+						pdwCount += 1;
+						break;
+				case 'robbery':
+						robCount += 1;
+						break;
+				case 'shoplifting':
+						shopliftCount += 1;
+						break;
+				case 'vehicle-crime':
+						vehCount += 1;
+						break;
+				case 'violent-crime':
+						violentCount += 1;
+						break;
+				default:
+					otherCount += 1;
+					console.log("Other count has been incremented: " + otherCount);
+				}
+		}
 
-
-
-
-/*
-		L.marker([51.5, -0.09]).addTo(mymap)
-			.bindPopup("<b>Hello world!</b><br />I am a popup.");
-
-		L.circle([e.latlng.lat, e.latlng.lng], 500, {
-			color: 'red',
-			fillColor: '#f03',
-			fillOpacity: 0.5
-		});
-
-		L.polygon([
-			[51.509, -0.08],
-			[51.503, -0.06],
-			[51.51, -0.047]
-		]).addTo(mymap).bindPopup("I am a polygon.");
-*/
+		function countReset(){
+		 crimeCount = 0;
+		 asbCount = 0; //Antisocial Behaviour
+		 burgCount = 0;
+		 cdaCount = 0; //In future britian, it's a crime to be Canadian (criminal damage arson)
+		 drugsCount = 0;
+		 theftCount = 0;
+		 pdwCount = 0; //Weapons charges
+		 robCount = 0;
+		 shopliftCount = 0;
+		 vehCount = 0; // Vehicle Crimes
+		 violentCount = 0;
+		 otherCount = 0;
+		}
 
 		var popup = L.popup();
 
 		function onMapClick(e) {
 			// debugger;
 			mymap.removeLayer(crimeMarkers);
-			crimeCount = 0;
+			countReset();
 
 			crimeMarkers = L.layerGroup([
 				radiusCircle = L.circle([e.latlng.lat, e.latlng.lng], 1600, {
@@ -78,13 +110,23 @@ $(document).ready(function(){
 				headers: { accept: 'application/json' }
 			}).done(function(res) {
 				res.forEach(function(crime){
-					crimeCount += 1;
+					countCalc(crime);
 					if(choosecrime === 'all'|| choosecrime === crime.category){
+						console.log("if criteria met");
 						crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]));
 					}
-					// var html = Handlebars.compile($(resultTemplate).html())(crime);
-					// $('.textpopulate').append(html);
 				});
+				// console.log("Antisocial behaviour at " + asbCount);
+				// console.log("burglary at " + burgCount);
+				// console.log("arson at " + cdaCount);
+				// console.log("drugs at " + drugsCount);
+				// console.log("Theft at " + theftCount);
+				// console.log("Weapons at " + pdwCount);
+				// console.log("Robberies at " + robCount);
+				// console.log("vehicle crime at "+ vehCount);
+				// console.log("Violent Crimes at " + violentCount);
+
+
 
 				crimeMarkers.addTo(mymap);
 				if(choosecrime === 'all'){
