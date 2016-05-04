@@ -47,10 +47,28 @@ $(document).ready(function(){
 		var popup = L.popup();
 
 		function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(mymap);
+			// debugger;
+			// mymap.removeLayer(markers);
+
+
+			var latitude = e.latlng.lat.toString();
+			var longitude = e.latlng.lng.toString();
+			console.log('latitude: '+ latitude + ', Longitude: ' + longitude);
+			choosemonth = $('#choosemonth').val();
+			chooseyear = $('#chooseyear').val();
+			console.log(chooseyear + '-' + choosemonth);
+			$.ajax({
+				url: 'https://data.police.uk/api/crimes-street/all-crime?lat=' + latitude + '&lng='+ longitude + '&date=' + chooseyear + '-' + choosemonth,
+				method: 'get',
+				headers: { accept: 'application/json' }
+			}).done(function(res) {
+				res.forEach(function(crime){
+					L.marker([crime.location.latitude, crime.location.longitude]).addTo(mymap)
+						.bindPopup("The following happened here: " + crime.category);
+					// var html = Handlebars.compile($(resultTemplate).html())(crime);
+					// $('.textpopulate').append(html);
+				});
+			});
 		}
 
 		mymap.on('click', onMapClick);
@@ -59,30 +77,30 @@ $(document).ready(function(){
 
 //SAMPLE REQUEST - https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01
 
-	$('#button-execute').click(function(e){
-
-		choosemonth = $('#choosemonth').val();
-		chooseyear = $('#chooseyear').val();
-
-
-		var $el = $(e.target);
-		console.log('button is pressed');
-		$.ajax({
-			url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=' + chooseyear + '-' + choosemonth,
-			// url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01',
-
-			method: 'get',
-			headers: { accept: 'application/json' }
-		}).done(function(res) {
-			res.forEach(function(crime){
-				L.marker([crime.location.latitude, crime.location.longitude]).addTo(mymap)
-					.bindPopup("The following happened here: " + crime.category);
-				// var html = Handlebars.compile($(resultTemplate).html())(crime);
-				// $('.textpopulate').append(html);
-			});
-		});
-
-	});
+	// $('#button-execute').click(function(e){
+	//
+	// 	choosemonth = $('#choosemonth').val();
+	// 	chooseyear = $('#chooseyear').val();
+	//
+	//
+	// 	var $el = $(e.target);
+	// 	console.log('button is pressed');
+	// 	$.ajax({
+	// 		url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=' + chooseyear + '-' + choosemonth,
+	// 		// url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01',
+	//
+	// 		method: 'get',
+	// 		headers: { accept: 'application/json' }
+	// 	}).done(function(res) {
+	// 		res.forEach(function(crime){
+	// 			L.marker([crime.location.latitude, crime.location.longitude]).addTo(mymap)
+	// 				.bindPopup("The following happened here: " + crime.category);
+	// 			// var html = Handlebars.compile($(resultTemplate).html())(crime);
+	// 			// $('.textpopulate').append(html);
+	// 		});
+	// 	});
+	//
+	// });
 
 
 });
