@@ -25,6 +25,12 @@ $(document).ready(function(){
 			id: 'mapbox.streets'
 		}).addTo(mymap);
 
+		var crimeMarkers = L.layerGroup([]);
+		crimeMarkers.addTo(mymap);
+
+
+
+
 
 
 /*
@@ -48,9 +54,9 @@ $(document).ready(function(){
 
 		function onMapClick(e) {
 			// debugger;
-			// mymap.removeLayer(markers);
+			mymap.removeLayer(crimeMarkers);
 
-
+			crimeMarkers = L.layerGroup([]);
 			var latitude = e.latlng.lat.toString();
 			var longitude = e.latlng.lng.toString();
 			console.log('latitude: '+ latitude + ', Longitude: ' + longitude);
@@ -63,11 +69,12 @@ $(document).ready(function(){
 				headers: { accept: 'application/json' }
 			}).done(function(res) {
 				res.forEach(function(crime){
-					L.marker([crime.location.latitude, crime.location.longitude]).addTo(mymap)
-						.bindPopup("The following happened here: " + crime.category);
+					crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]));
 					// var html = Handlebars.compile($(resultTemplate).html())(crime);
 					// $('.textpopulate').append(html);
 				});
+				crimeMarkers.addTo(mymap);
+
 			});
 		}
 
