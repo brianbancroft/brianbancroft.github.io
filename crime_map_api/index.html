@@ -36,8 +36,8 @@
 
 
   <div class="container">
-    <div class="col-md-12">
-      <div id="mapid"></div>
+    <div class="col-md-11">
+      <div id="mapid"></div><br>
 
 
 
@@ -89,29 +89,43 @@
           </div>
         </div>
         <br><br><hr>
-        <ul class="list-group list-inline">
-        <div class="col-md-3">
-          <li class="list-group-item">Select a month,</li>
+        <div id="intro-row">
+          <ul class="list-group list-inline">
+            <div class="col-md-3">
+              <li class="list-group-item">Select a month,</li>
+            </div>
+            <div class="col-md-3">
+              <li class="list-group-item">Select a year,</li>
+            </div>
+            <div class="col-md-3">
+              <li class="list-group-item">Select a crime; then,</li>
+            </div>
+            <div class="col-md-3">
+              <li class="list-group-item">Click on the map!</li>
+            </div>
+          </ul>
         </div>
-        <div class="col-md-3">
-          <li class="list-group-item">Select a year,</li>
-        </div>
-        <div class="col-md-3">
-          <li class="list-group-item">Select a crime; then,</li>
-        </div>
-        <div class="col-md-3">
-          <li class="list-group-item">Click on the map!</li>
-        </div>
+        <div id="crime-stats-row">
+          <ul class="list-group list-inline">
+            <div class="col-md-6">
+              <strong>
+                <li class="list-group-item text-right" id="crime-category-summary">
+                </li>
+            </strong>
+            </div>
+            <div class="col-md-3 text-right">
+              <li class="list-group-item text-left" id="crime-category-count">
+              </li>
+            </div>
+            <div class="col-md-3">
+              <li class="list-group-item text-center" id="total-crimes">
+              </li>
+            </div>
 
-      </ul>
-      <br><hr><br><br>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-
-
-<div class="container">
-<p id="crimestat"></p>
-</div>
 
 <script id="resultTemplate" type="text/x-handlebars-template">
     <li data-product-id="{{id}}">

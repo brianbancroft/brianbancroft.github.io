@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 
+		$('#crime-stats-row').hide();
 		var mymap = L.map('mapid').setView([52.629729, -1.131592], 9);
 
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
@@ -15,6 +16,7 @@ $(document).ready(function(){
 		var crimeMarkers = L.layerGroup([]);
 		//counts for various crimes
 		var crimeCount = 0;
+		var chosenCrimeCount = 0;
 		var asbCount = 0; //Antisocial Behaviour
 		var burgCount = 0;
 		var cdaCount = 0; //In future britian, it's a crime to be Canadian (criminal damage arson)
@@ -125,15 +127,55 @@ $(document).ready(function(){
 				// console.log("Robberies at " + robCount);
 				// console.log("vehicle crime at "+ vehCount);
 				// console.log("Violent Crimes at " + violentCount);
+				switch(choosecrime){
+					case 'anti-social-behaviour':
+							chosenCrimeCount = asbCount;
+							break;
+					case 'burglary':
+							chosenCrimeCount = burgCount;
+							break;
+					case 'criminal-damage-arson':
+							chosenCrimeCount = cdaCount;
+							break;
+					case 'drugs':
+							chosenCrimeCount = drugsCount;
+							break;
+					case 'other-theft':
+							chosenCrimeCount = theftCount;
+							break;
+					case 'public-disorder-weapons':
+							chosenCrimeCount = pdwCount;
+							break;
+					case 'robbery':
+							chosenCrimeCount = robCount;
+							break;
+					case 'shoplifting':
+							chosenCrimeCount = shopliftCount;
+							break;
+					case 'vehicle-crime':
+							chosenCrimeCount = vehCount;
+							break;
+					case 'violent-crime':
+							chosenCrimeCount = violentCount;
+							break;
+					default:
+							chosenCrimeCount = crimeCount;
+
+				}
+
 
 
 
 				crimeMarkers.addTo(mymap);
+				$('#intro-row').hide();
 				if(choosecrime === 'all'){
-					$('#crimestat').text("In the place you clicked, there were " + crimeCount + " crimes, total.");
+					$('#crime-category-summary').text('Total Crimes:');
 				}else{
-					$('#crimestat').text("In the place you clicked, there were " + crimeCount + " instances of " + $('#choosecrime').text() );
+					$('#crime-category-summary').text('Count of \"' + choosecrime + '\"' );
 				}
+				$('#crime-category-count').text(chosenCrimeCount);
+				$('#total-crimes').text('Total in area: ' + crimeCount);
+				$('#crime-stats-row').show();
 			});
 		}
 
