@@ -70,6 +70,7 @@ $(document).ready(function(){
 			console.log('latitude: '+ latitude + ', Longitude: ' + longitude);
 			choosemonth = $('#choosemonth').val();
 			chooseyear = $('#chooseyear').val();
+			choosecrime =$('#choosecrime').val();
 			console.log(chooseyear + '-' + choosemonth);
 			$.ajax({
 				url: 'https://data.police.uk/api/crimes-street/all-crime?lat=' + latitude + '&lng='+ longitude + '&date=' + chooseyear + '-' + choosemonth,
@@ -78,14 +79,19 @@ $(document).ready(function(){
 			}).done(function(res) {
 				res.forEach(function(crime){
 					crimeCount += 1;
-					crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]));
+					if(choosecrime === 'all'|| choosecrime === crime.category){
+						crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]));
+					}
 					// var html = Handlebars.compile($(resultTemplate).html())(crime);
 					// $('.textpopulate').append(html);
 				});
 
 				crimeMarkers.addTo(mymap);
-				$('#crimestat').text("In the place you clicked, there were " + crimeCount + " crimes.");
-
+				if(choosecrime === 'all'){
+					$('#crimestat').text("In the place you clicked, there were " + crimeCount + " crimes, total.");
+				}else{
+					$('#crimestat').text("In the place you clicked, there were " + crimeCount + " instances of " + $('#choosecrime').text() );
+				}
 			});
 		}
 
