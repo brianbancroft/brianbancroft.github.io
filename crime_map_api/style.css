@@ -34,7 +34,7 @@ li {
   color:black;
 }
 .container {
-  padding-top:100px;
+  padding-top:50px;
 }
 .form-group-lg .form-control {
   border-radius:0px;
@@ -52,7 +52,6 @@ li {
   border: 1px solid white;
   color:#B500C9;
   font-weight: 900;
-  padding:5px 5px;
   font-size:25px;
   transition:background-color .3s;
 }
