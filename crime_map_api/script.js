@@ -26,6 +26,7 @@ $(document).ready(function(){
 		}).addTo(mymap);
 
 		var crimeMarkers = L.layerGroup([]);
+		var crimeCount = 0;
 		crimeMarkers.addTo(mymap);
 
 
@@ -37,11 +38,11 @@ $(document).ready(function(){
 		L.marker([51.5, -0.09]).addTo(mymap)
 			.bindPopup("<b>Hello world!</b><br />I am a popup.");
 
-		L.circle([51.508, -0.11], 500, {
+		L.circle([e.latlng.lat, e.latlng.lng], 500, {
 			color: 'red',
 			fillColor: '#f03',
 			fillOpacity: 0.5
-		}).addTo(mymap).bindPopup("I am a circle.");
+		});
 
 		L.polygon([
 			[51.509, -0.08],
@@ -55,8 +56,15 @@ $(document).ready(function(){
 		function onMapClick(e) {
 			// debugger;
 			mymap.removeLayer(crimeMarkers);
+			crimeCount = 0;
 
-			crimeMarkers = L.layerGroup([]);
+			crimeMarkers = L.layerGroup([
+				radiusCircle = L.circle([e.latlng.lat, e.latlng.lng], 1600, {
+					color: 'red',
+					fillColor: '#f03',
+					fillOpacity: 0.2
+				})
+			]);
 			var latitude = e.latlng.lat.toString();
 			var longitude = e.latlng.lng.toString();
 			console.log('latitude: '+ latitude + ', Longitude: ' + longitude);
@@ -69,45 +77,18 @@ $(document).ready(function(){
 				headers: { accept: 'application/json' }
 			}).done(function(res) {
 				res.forEach(function(crime){
+					crimeCount += 1;
 					crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]));
 					// var html = Handlebars.compile($(resultTemplate).html())(crime);
 					// $('.textpopulate').append(html);
 				});
+
 				crimeMarkers.addTo(mymap);
+				$('#crimestat').text("In the place you clicked, there were " + crimeCount + " crimes.");
 
 			});
 		}
 
 		mymap.on('click', onMapClick);
-
-// AJAX GET REQUREST
-
-//SAMPLE REQUEST - https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01
-
-	// $('#button-execute').click(function(e){
-	//
-	// 	choosemonth = $('#choosemonth').val();
-	// 	chooseyear = $('#chooseyear').val();
-	//
-	//
-	// 	var $el = $(e.target);
-	// 	console.log('button is pressed');
-	// 	$.ajax({
-	// 		url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=' + chooseyear + '-' + choosemonth,
-	// 		// url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01',
-	//
-	// 		method: 'get',
-	// 		headers: { accept: 'application/json' }
-	// 	}).done(function(res) {
-	// 		res.forEach(function(crime){
-	// 			L.marker([crime.location.latitude, crime.location.longitude]).addTo(mymap)
-	// 				.bindPopup("The following happened here: " + crime.category);
-	// 			// var html = Handlebars.compile($(resultTemplate).html())(crime);
-	// 			// $('.textpopulate').append(html);
-	// 		});
-	// 	});
-	//
-	// });
-
 
 });
