@@ -61,10 +61,16 @@ $(document).ready(function(){
 
 	$('#button-execute').click(function(e){
 
+		choosemonth = $('#choosemonth').val();
+		chooseyear = $('#chooseyear').val();
+
+
 		var $el = $(e.target);
 		console.log('button is pressed');
 		$.ajax({
-			url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01',
+			url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=' + chooseyear + '-' + choosemonth,
+			// url: 'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2014-01',
+
 			method: 'get',
 			headers: { accept: 'application/json' }
 		}).done(function(res) {
