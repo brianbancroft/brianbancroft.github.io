@@ -70,7 +70,7 @@ $(document).ready(function(){
 		}).done(function(res) {
 			res.forEach(function(crime){
 				L.marker([crime.location.latitude, crime.location.longitude]).addTo(mymap)
-					.bindPopup("<b>Hello world!</b><br />I am a crime!");
+					.bindPopup("The following happened here: " + crime.category);
 				// var html = Handlebars.compile($(resultTemplate).html())(crime);
 				// $('.textpopulate').append(html);
 			});
