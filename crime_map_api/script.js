@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-		var mymap = L.map('mapid').setView([52.629729, -1.131592], 15);
+		var mymap = L.map('mapid').setView([52.629729, -1.131592], 9);
 
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
 			maxZoom: 18,
