@@ -51,3 +51,12 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+header {
+  background-image: url('{{ site.baseurl }}/img/footer_bg.png');
+}
+
+footer {
+  background-image: url('{{ site.baseurl }}/img/footer_bg.png');
+  bottom: 0;
+}
