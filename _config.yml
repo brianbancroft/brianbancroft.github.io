@@ -13,6 +13,7 @@ baseurl: ""
 url: "brianbancroft.github.io" # the base hostname & protocol for your site
 twitter_username: brian_bancroft
 github_username:  brianbancroft
+linkedin_username: geobrian
 
 # Build settings
 markdown: kramdown
