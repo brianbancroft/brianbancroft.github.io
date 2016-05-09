@@ -53,11 +53,11 @@ $on-laptop:        800px;
 ;
 
 header {
-  background-image: url('{{ site.baseurl }}/img/footer_bg.png');
+  background-image: url('{{ site.baseurl }}/img/header_rs.png');
 }
 
 footer {
-  background-image: url('{{ site.baseurl }}/img/footer_bg.png');
+  background-image: url('{{ site.baseurl }}/img/footer_rs.png');
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -115,9 +115,24 @@ h1.post-title{
   height: 100%;
 }
 
+.background-image{
+  height: 400px;
+  width: 50%;
+  float: left;
+
+}
+
+.background-left{
+  background-image: url('{{ site.baseurl }}/img/left_pane_rs.png');
+}
+
+.background-right{
+  background-image: url('{{ site.baseurl }}/img/right_pane_rs.png');
+}
+
 .front-link{
 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-font-size: 24px;
+font-size: 160px;
 font-style: normal;
 font-variant: normal;
 font-weight: 500;
@@ -143,16 +158,16 @@ transition: all 2s;
 
 
 .left-page{
-  width: 50%;
-  float: left;
+  width: 100%;
   background-color: red;
-  height: 400px;
+  opacity: 0.5;
+  height: 100%;
+
 
 }
 .right-page{
-  width: 50%;
-  float: left;
+  width: 100%;
   background-color: blue;
-  height: 400px;
-
+  opacity: 0.4;
+  height: 100%;
 }
