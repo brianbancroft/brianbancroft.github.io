@@ -59,4 +59,39 @@ header {
 footer {
   background-image: url('{{ site.baseurl }}/img/footer_bg.png');
   bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.text-box {
+  background-color: #237a3c;
+  padding: 1px;
+  opacity: 0.5;
+  box-shadow: 0 0 5px 10px #237a3c;
+}
+
+.wrapper {
+    max-width: -webkit-calc(1400px - (30px * 2));
+    max-width: calc(1400px - (30px * 2));
+  }
+
+.site-title, .site-title:visited {
+    color: #ddd;
+}
+
+.footer-heading{
+  color: #ddd;
+}
+
+a.page-link{
+  color: #ddd;
+}
+a.page-link:visited{
+  color: #ddd;
+}
+
+h1.post-title{
+  text-align: center;
+  color: #ddd;
+
 }

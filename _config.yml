@@ -6,9 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Brian's Corner
+title: brianbancroft.ca
 email: hello@brianbancroft.ca
-description: GIS, Carto, Web, Math. This is the showcase plus blog.
+description: Web and Desktop Development, Calculations, Dataviz, Logic. This is a
 baseurl: ""
 url: "brianbancroft.github.io" # the base hostname & protocol for your site
 twitter_username: brian_bancroft
