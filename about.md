@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-#### Oh what is this thing?
+## What is this thing about anyway?
 
 You can find the source code for the Jekyll new theme at:
 {% include icon-github.html username="jglovier" %} /

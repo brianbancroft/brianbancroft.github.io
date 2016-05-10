@@ -4,6 +4,7 @@
 }
 body {
     background: #237a3c;
+    background-image:'./centre_bg.png'
 }
 #hexGrid {
     overflow: hidden;
