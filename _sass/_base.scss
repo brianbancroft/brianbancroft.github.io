@@ -203,3 +203,18 @@ pre {
         }
     }
 }
+
+@media (max-width: 800px){
+  .icon {
+
+      > svg {
+          width: 24px;
+          height: 24px;
+          vertical-align: middle;
+
+          path {
+              fill: $grey-color;
+          }
+      }
+  }
+}

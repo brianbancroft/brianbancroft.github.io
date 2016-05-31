@@ -18,7 +18,7 @@ $text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
-$grey-color:       #bbb;
+$grey-color:       #eee;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -290,7 +290,10 @@ body {
             transform:translateY(0%) translatez(-1px);
 }
 
-/*** SPACING AND SIZING *****************************************************************/
+
+
+
+/*** SPACING AND SIZING - HEXES *****************************************************************/
 @media (min-width:1201px) { /* <- 5-4  hexagons per row */
     .hex {
         width: 19.2%; /* = (100-4) / 5 */
@@ -429,6 +432,7 @@ div.social-media-header{
   display:flex;
   flex-direction: row;
   flex-wrap:nowrap;
+  float:right;
 }
 div.social-media-header a{
   padding: 0.75em;
