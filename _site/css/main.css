@@ -520,6 +520,34 @@ h1.post-title {
   width: 50%;
   float: left; }
 
+@media (max-width: 600px) {
+  .link-pane {
+    margin-left: 5%;
+    height: 150px;
+    width: 100%;
+    float: none;
+    margin-bottom: 3px; }
+
+  div.left-page {
+    opacity: 0.7;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50px 0px 0px 0px;
+    justify-content: center; }
+
+  div.right-page {
+    background-color: blue;
+    opacity: 0.7;
+    height: 100%;
+    border: 2px solid gray;
+    border-radius: 0px 0px 50px 0px;
+    justify-content: center; }
+
+  div.left-page.front-link {
+    font-size: 80px; }
+
+  div.right-page.front-link {
+    font-size: 80px; } }
 .background-left {
   background-image: url("/img/left_pane_rs.png"); }
 
@@ -555,7 +583,7 @@ h1.post-title {
   opacity: 0.7;
   height: 100%;
   border: 1px solid black;
-  border-radius: 50px 0px 0px 0px;
+  border-radius: 0px 0px 0px 50px;
   justify-content: center; }
 
 .right-page {
@@ -564,7 +592,7 @@ h1.post-title {
   opacity: 0.7;
   height: 100%;
   border: 2px solid gray;
-  border-radius: 0px 50px 0px 0px;
+  border-radius: 0px 0px 50px 0px;
   justify-content: center; }
 
 /*** HEX CONTENT **********************************************************************/
@@ -819,3 +847,14 @@ a span svg:hover {
 
 a.site-title {
   padding-top: 0.55em; }
+
+@media (max-width: 600px) {
+  a.site-title {
+    padding-top: 0em; }
+
+  div.social-media-header a {
+    padding: 0.55em;
+    margin-top: 0.3em; }
+
+  header {
+    right: 0; } }
