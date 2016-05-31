@@ -18,7 +18,7 @@ $text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
-$grey-color:       #828282;
+$grey-color:       #bbb;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -423,4 +423,19 @@ body {
     #hexGrid {
         font-size: 13px;
     }
+}
+
+div.social-media-header{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+}
+div.social-media-header a{
+  padding: 0.75em;
+}
+a span svg:hover{
+  fill: fff;
+}
+a.site-title{
+  padding-top: 0.55em;
 }

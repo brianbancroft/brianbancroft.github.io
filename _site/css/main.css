@@ -78,8 +78,8 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: #828282;
-  border-left: 4px solid #e8e8e8;
+  color: #bbb;
+  border-left: 4px solid white;
   padding-left: 15px;
   font-size: 18px;
   letter-spacing: -1px;
@@ -93,7 +93,7 @@ blockquote {
 pre,
 code {
   font-size: 15px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid white;
   border-radius: 3px;
   background-color: #eef; }
 
@@ -137,19 +137,18 @@ pre {
  * Icons
  */
 .icon > svg {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 58px;
+  height: 58px;
   vertical-align: middle; }
   .icon > svg path {
-    fill: #828282; }
+    fill: #bbb; }
 
 /**
  * Site header
  */
 .site-header {
-  border-top: 5px solid #424242;
-  border-bottom: 1px solid #e8e8e8;
+  border-top: 5px solid #7b7b7b;
+  border-bottom: 1px solid white;
   min-height: 56px;
   position: relative; }
 
@@ -161,7 +160,7 @@ pre {
   margin-bottom: 0;
   float: left; }
   .site-title, .site-title:visited {
-    color: #424242; }
+    color: #7b7b7b; }
 
 .site-nav {
   float: right;
@@ -179,7 +178,7 @@ pre {
       top: 9px;
       right: 15px;
       background-color: #fdfdfd;
-      border: 1px solid #e8e8e8;
+      border: 1px solid white;
       border-radius: 5px;
       text-align: right; }
       .site-nav .menu-icon {
@@ -194,7 +193,7 @@ pre {
           width: 18px;
           height: 15px; }
           .site-nav .menu-icon > svg path {
-            fill: #424242; }
+            fill: #7b7b7b; }
       .site-nav .trigger {
         clear: both;
         display: none; }
@@ -212,7 +211,7 @@ pre {
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid white;
   padding: 30px 0; }
 
 .footer-heading {
@@ -226,7 +225,7 @@ pre {
 
 .footer-col-wrapper {
   font-size: 15px;
-  color: #828282;
+  color: #bbb;
   margin-left: -15px; }
 
 .footer-col {
@@ -277,7 +276,7 @@ pre {
 
 .post-meta {
   font-size: 14px;
-  color: #828282; }
+  color: #bbb; }
 
 .post-link {
   display: block;
@@ -799,3 +798,16 @@ body {
 @media (max-width: 400px) {
   #hexGrid {
     font-size: 13px; } }
+div.social-media-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; }
+
+div.social-media-header a {
+  padding: 0.75em; }
+
+a span svg:hover {
+  fill: fff; }
+
+a.site-title {
+  padding-top: 0.55em; }
