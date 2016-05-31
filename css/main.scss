@@ -431,8 +431,11 @@ div.social-media-header{
   flex-wrap:nowrap;
 }
 div.social-media-header a{
-  padding: 3px;
+  padding: 0.75em;
 }
 a span svg:hover{
   fill: fff;
+}
+a.site-title{
+  padding-top: 0.55em;
 }
