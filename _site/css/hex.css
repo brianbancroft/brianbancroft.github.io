@@ -69,6 +69,7 @@ body {
 .hex h1 {
     bottom: 50%;
     padding-top:50%;
+    font-family: 'Chonburi', cursive;
     font-size: 1.5em;
     z-index: 1;
     -webkit-transform:translateY(-100%) translatez(-1px);
