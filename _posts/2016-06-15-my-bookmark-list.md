@@ -26,6 +26,10 @@ So I know a few things. Maybe you want to learn a few things as well? These are 
 - Mapbox is my favorite tool for webmapping. I recommend you learn it if you've ever used the Google Maps API as it has much more functionality available to the common user.
 -- http://mapbox.com
 
+## Design
+- Typography is something that can set apart maps, web pages and the like.
+-- http://typographyhandbook.com/
+
 ## Science Fiction and Blogging
 - Jerry Pournelle is one of my favorite authours. If you want the reasoned arguments of someone you don't agree with, this is where you go. Not only does he understand the science behind the topic of the day, his letter-writers also understand the problem as well.
 -- https://www.jerrypournelle.com/jerrypournelle.c/index.php

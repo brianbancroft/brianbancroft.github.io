@@ -560,11 +560,16 @@ h1.post-title {
   font-style: normal;
   font-variant: normal;
   font-weight: 500;
+  font-kerning: auto;
   line-height: 26.4px;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.front-link span {
+  font-kerning: auto;
+  margin-right: 0.04em; }
 
 .front-link:hover {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -573,9 +578,14 @@ h1.post-title {
   font-variant: normal;
   font-weight: 500;
   line-height: 26.4px;
-  color: red;
   background-color: white;
   transition: all 2s; }
+
+.left-page.front-link:hover {
+  color: blue; }
+
+.right-page.front-link:hover {
+  color: red; }
 
 .left-page {
   width: 90%;
