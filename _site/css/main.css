@@ -693,6 +693,18 @@ body {
   -ms-transform: translateY(100%) translatez(-1px);
   transform: translateY(100%) translatez(-1px); }
 
+.post-header {
+  padding-top: 1.2em; }
+
+.post-meta {
+  margin-left: 3em;
+  padding-bottom: 0.5em; }
+
+.post {
+  background-color: rgba(76, 163, 101, 0.53);
+  padding: 2em;
+  margin: 3em; }
+
 /*** HOVER EFFECT  **********************************************************************/
 .hexIn:hover h1, .hexIn:focus h1,
 .hexIn:hover p, .hexIn:focus p {
