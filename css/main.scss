@@ -467,6 +467,11 @@ body {
     .hex:nth-child(5n+6) {
         clear: left;
     }
+    .post{
+      padding:1em;
+      margin: 1.2em;
+
+    }
 }
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
     .hex {
@@ -492,10 +497,20 @@ body {
     .hex:nth-child(3n+4) {
         clear: left;
     }
+    .post{
+      padding:0.4em;
+      margin: 0.9em;
+
+    }
 }
 @media (max-width: 400px) {
     #hexGrid {
         font-size: 13px;
+    }
+    .post{
+      padding:0.2em;
+      margin: 0.5em;
+
     }
 }
 
