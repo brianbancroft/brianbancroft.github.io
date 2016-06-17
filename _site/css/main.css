@@ -571,8 +571,7 @@ h1.post-title {
   font-kerning: auto;
   margin-right: 0.04em; }
 
-.front-link:hover {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.front-link:hover, .front-link:active {
   font-size: 24px;
   font-style: normal;
   font-variant: normal;
@@ -832,7 +831,13 @@ body {
 
   .post {
     padding: 1em;
-    margin: 1.2em; } }
+    margin: 1.2em; }
+
+  .hexIn h1, .hexIn h1,
+  .hexIn p, .hexIn p {
+    -webkit-transform: translateY(0%) translatez(-1px);
+    -ms-transform: translateY(0%) translatez(-1px);
+    transform: translateY(0%) translatez(-1px); } }
 @media (max-width: 600px) {
   /* <- 2-1  hexagons per row */
   .hex {
@@ -862,14 +867,48 @@ body {
 
   .post {
     padding: 0.4em;
-    margin: 0.9em; } }
+    margin: 0.9em; }
+
+  .hex h1 {
+    font-size: 0.9em; }
+
+  a.site-title {
+    padding-top: 0em; }
+
+  div.social-media-header a {
+    padding: 0.55em;
+    margin-top: 0.3em; }
+
+  header {
+    right: 0; }
+
+  .hexIn h1, .hexIn h1,
+  .hexIn p, .hexIn p {
+    -webkit-transform: translateY(0%) translatez(-1px);
+    -ms-transform: translateY(0%) translatez(-1px);
+    transform: translateY(0%) translatez(-1px); }
+
+  .hexIn:hover h1, .hexIn:focus h1,
+  .hexIn:hover p, .hexIn:focus p {
+    -webkit-transform: translateY(0%) translatez(1px);
+    -ms-transform: translateY(0%) translatez(1px);
+    transform: translateY(0%) translatez(1px); } }
 @media (max-width: 400px) {
   #hexGrid {
     font-size: 13px; }
 
+  .hex h1 {
+    font-size: 0.9em; }
+
   .post {
     padding: 0.2em;
-    margin: 0.5em; } }
+    margin: 0.5em; }
+
+  .hexIn h1, .hexIn h1,
+  .hexIn p, .hexIn p {
+    -webkit-transform: translateY(0%) translatez(-1px);
+    -ms-transform: translateY(0%) translatez(-1px);
+    transform: translateY(0%) translatez(-1px); } }
 div.social-media-header {
   display: flex;
   flex-direction: row;
@@ -884,14 +923,3 @@ a span svg:hover {
 
 a.site-title {
   padding-top: 0.55em; }
-
-@media (max-width: 600px) {
-  a.site-title {
-    padding-top: 0em; }
-
-  div.social-media-header a {
-    padding: 0.55em;
-    margin-top: 0.3em; }
-
-  header {
-    right: 0; } }
