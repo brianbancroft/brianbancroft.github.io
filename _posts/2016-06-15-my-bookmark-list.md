@@ -33,3 +33,9 @@ So I know a few things. Maybe you want to learn a few things as well? These are 
 ## Science Fiction and Blogging
 - Jerry Pournelle is one of my favorite authours. If you want the reasoned arguments of someone you don't agree with, this is where you go. Not only does he understand the science behind the topic of the day, his letter-writers also understand the problem as well.
 -- https://www.jerrypournelle.com/jerrypournelle.c/index.php
+
+## What do I want to learn?
+1. React
+2. WebGL
+3. Three.js
+4. d3.js
