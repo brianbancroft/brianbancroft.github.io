@@ -125,10 +125,16 @@ $(document).ready(function() {
             }
         }).done(function(res) {
             res.forEach(function(crime) {
+                var count = 0
                 countCalc(crime);
                 if (choosecrime === 'all' || choosecrime === crime.category) {
                     console.log("if criteria met");
-                    crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]).bindPopup('This is a crime!'));
+                    crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]).bindPopup(
+                        'Crime Details: ' + crime.location_type + ' ' + crime.location.name + '\n' + 
+                        'Date of Crime: '+ crime.month + '\n' + 
+                        'Outcome: ' + crime.outcome_status +  '\n'
+                        + 'Count: ' + count
+                        ));
 
                 }
             });
