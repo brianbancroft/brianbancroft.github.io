@@ -116,6 +116,7 @@ $(document).ready(function() {
         choosemonth = $('#choosemonth').val();
         chooseyear = $('#chooseyear').val();
         choosecrime = $('#choosecrime').val();
+        var crimeStatusString = "";
         console.log(chooseyear + '-' + choosemonth);
         $.ajax({
             url: 'https://data.police.uk/api/crimes-street/all-crime?lat=' + latitude + '&lng=' + longitude + '&date=' + chooseyear + '-' + choosemonth,
@@ -125,16 +126,22 @@ $(document).ready(function() {
             }
         }).done(function(res) {
             res.forEach(function(crime) {
-                var count = 0
                 countCalc(crime);
+                if (crime.outcome_status !== null) {
+                    crimeStatusString = "Crime Outcome: " + crime.outcome_status.category
+                } else {
+                    crimeStatusString = "";
+                }
+
+
                 if (choosecrime === 'all' || choosecrime === crime.category) {
-                    console.log("if criteria met");
+                    console.log('Crime: [' + crime.location.latitude + ',' + crime.location.longitude + '] date: ' + crime.month)
                     crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]).bindPopup(
-                        'Crime Details: ' + crime.location_type + ' ' + crime.location.name + '\n' + 
-                        'Date of Crime: '+ crime.month + '\n' + 
-                        'Outcome: ' + crime.outcome_status +  '\n'
-                        + 'Count: ' + count
-                        ));
+                        'Crime Details: ' + crime.location_type + ' ' + crime.location.name + '\n' +
+                        'Location: [' + crime.location.latitude + ',' + crime.location.longitude + ']'
+                        + crimeStatusString 
+                       
+                    ));
 
                 }
             });
@@ -195,7 +202,7 @@ $(document).ready(function() {
             $('#crime-stats-row').show();
         });
 
-        mymap.setView([latitude,longitude], 13);
+        mymap.setView([latitude, longitude], 13);
     }
 
     mymap.on('click', onMapClick);
