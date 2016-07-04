@@ -14,6 +14,8 @@ $(document).ready(function() {
         maxZoom: 16,
         ext: 'png'
     }).addTo(mymap);
+
+
     // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
     //  maxZoom: 18,
     //  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -126,7 +128,8 @@ $(document).ready(function() {
                 countCalc(crime);
                 if (choosecrime === 'all' || choosecrime === crime.category) {
                     console.log("if criteria met");
-                    crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]));
+                    crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]).bindPopup('This is a crime!'));
+
                 }
             });
             // console.log("Antisocial behaviour at " + asbCount);
