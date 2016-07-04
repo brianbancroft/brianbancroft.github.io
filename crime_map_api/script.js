@@ -15,15 +15,6 @@ $(document).ready(function() {
         ext: 'png'
     }).addTo(mymap);
 
-
-    // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-    //  maxZoom: 18,
-    //  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-    //      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    //      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    //  id: 'mapbox.streets'
-    // }).addTo(mymap);
-
     var crimeMarkers = L.layerGroup([]);
     //counts for various crimes
     var crimeCount = 0;
@@ -40,7 +31,6 @@ $(document).ready(function() {
     var violentCount = 0;
     var otherCount = 0;
     crimeMarkers.addTo(mymap);
-
 
     function countCalc(crime) {
         crimeCount += 1;
@@ -77,8 +67,20 @@ $(document).ready(function() {
                 break;
             default:
                 otherCount += 1;
-                console.log("Other count has been incremented: " + otherCount);
         }
+    }
+
+    function onEachFeature(feature, layer) {
+        console.log("onEachFeature activated");
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    function ZoomToFeature(e) {
+        debugger;
     }
 
     function countReset() {
@@ -117,7 +119,6 @@ $(document).ready(function() {
         chooseyear = $('#chooseyear').val();
         choosecrime = $('#choosecrime').val();
         var crimeStatusString = "";
-        console.log(chooseyear + '-' + choosemonth);
         $.ajax({
             url: 'https://data.police.uk/api/crimes-street/all-crime?lat=' + latitude + '&lng=' + longitude + '&date=' + chooseyear + '-' + choosemonth,
             method: 'get',
@@ -135,12 +136,10 @@ $(document).ready(function() {
 
 
                 if (choosecrime === 'all' || choosecrime === crime.category) {
-                    console.log('Crime: [' + crime.location.latitude + ',' + crime.location.longitude + '] date: ' + crime.month)
                     crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]).bindPopup(
                         'Crime Details: ' + crime.location_type + ' ' + crime.location.name + '\n' +
-                        'Location: [' + crime.location.latitude + ',' + crime.location.longitude + ']'
-                        + crimeStatusString 
-                       
+                        'Location: [' + crime.location.latitude + ',' + crime.location.longitude + ']' + crimeStatusString
+
                     ));
 
                 }
@@ -206,5 +205,14 @@ $(document).ready(function() {
     }
 
     mymap.on('click', onMapClick);
+    mymap.on('mouseover', function(e) {
+        console.log('test');
+    });
+    // marker.on('mouseover', function(e) {
+    //     this.openPopup();
+    // });
+    // marker.on('mouseout', function(e) {
+    //     this.closePopup();
+    // });
 
 });
