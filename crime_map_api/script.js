@@ -22,8 +22,7 @@ $(function() {
 
 
     var mymap = L.map('mapid').setView([52.629729, -1.131592], 9);
-    mymap.doubleClickZoom.disable();    
-    debugger;
+    mymap.doubleClickZoom.disable();
 
     L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
         attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -35,44 +34,37 @@ $(function() {
 
     mymap.on('dblclick', onMapClick);
 
-    mymap.on('mouseover', function(e) {
-        //open popup;
-        console.log("mouseover event");
-    });
+    var crimeMarkers = L.layerGroup([], {}).addTo(mymap);
 
-    var crimeMarkers = L.layerGroup([], {
-        eachLayer: oneachLayer
-    }).addTo(mymap);
+    // crimeMarkers.eachLayer.marker.on('mouseover', function (e) {
+    //     console.log("popup over marker detected")
+    // })
 
     var popup = L.popup();
 
-
-    function oneachLayer(feature, layer) {
-        console.log("onEachFeature activated");
-        mymap.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            // click: onMapClick
-            // doubleclick: onMapClick
-        });
-    }
-
     function highlightFeature() {
-        // this.openPopup();
+        this.openPopup();
+        console.log("open popup called");
     }
 
     function resetHighlight() {
-        // this.closePopup();
+        this.closePopup();
     }
 
     function onMapClick(e) {
+
+        var crimeStatusString = "";
         var latitude = e.latlng.lat.toString();
         var longitude = e.latlng.lng.toString();
-        console.log("Click Event");
+
+        // INPUT VARIABLES VIA JQUERY
+        choosemonth = $('#choosemonth').val();
+        chooseyear = $('#chooseyear').val();
+        choosecrime = $('#choosecrime').val();
+
+        // RESET, RE-INITIALIZE
         mymap.removeLayer(crimeMarkers);
         countReset();
-
-        // Re-initialize crimeMarkers, starting with red circle. 
         crimeMarkers = L.layerGroup([
             radiusCircle = L.circle([e.latlng.lat, e.latlng.lng], 1600, {
                 color: 'red',
@@ -81,6 +73,86 @@ $(function() {
             })
         ]).addTo(mymap);
         mymap.setView([latitude, longitude], 13);
+
+        // AJAX TIME
+        $.ajax({
+            url: 'https://data.police.uk/api/crimes-street/all-crime?lat=' + latitude + '&lng=' + longitude + '&date=' + chooseyear + '-' + choosemonth,
+            method: 'get',
+            headers: {
+                accept: 'application/json'
+            }
+        }).done(function(res) {
+            res.forEach(function(crime) {
+                countCalc(crime);
+                if (crime.outcome_status !== null) {
+                    crimeStatusString = "Crime Outcome: " + crime.outcome_status.category
+                } else {
+                    crimeStatusString = "";
+                }
+
+
+                if (choosecrime === 'all' || choosecrime === crime.category) {
+                    crimeMarkers.addLayer(L.marker([crime.location.latitude, crime.location.longitude]).bindPopup(
+                        'Crime Details: ' + crime.location_type + ' ' + crime.location.name + '\n' +
+                        'Location: [' + crime.location.latitude + ',' + crime.location.longitude + ']' + crimeStatusString
+
+                    ).on('mouseover', function(e) {
+                        this.openPopup();
+                    }).on('mouseout', function(e) {
+                        this.closePopup();
+                    }));
+
+                }
+            });
+
+            switch (choosecrime) {
+                case 'anti-social-behaviour':
+                    chosenCrimeCount = asbCount;
+                    break;
+                case 'burglary':
+                    chosenCrimeCount = burgCount;
+                    break;
+                case 'criminal-damage-arson':
+                    chosenCrimeCount = cdaCount;
+                    break;
+                case 'drugs':
+                    chosenCrimeCount = drugsCount;
+                    break;
+                case 'other-theft':
+                    chosenCrimeCount = theftCount;
+                    break;
+                case 'public-disorder-weapons':
+                    chosenCrimeCount = pdwCount;
+                    break;
+                case 'robbery':
+                    chosenCrimeCount = robCount;
+                    break;
+                case 'shoplifting':
+                    chosenCrimeCount = shopliftCount;
+                    break;
+                case 'vehicle-crime':
+                    chosenCrimeCount = vehCount;
+                    break;
+                case 'violent-crime':
+                    chosenCrimeCount = violentCount;
+                    break;
+                default:
+                    chosenCrimeCount = crimeCount;
+
+            }
+
+            crimeMarkers.addTo(mymap);
+            $('#intro-row').hide();
+            if (choosecrime === 'all') {
+                $('#crime-category-summary').text('Total Crimes:');
+            } else {
+                $('#crime-category-summary').text('Count of \"' + choosecrime + '\"');
+            }
+            $('#crime-category-count').text(chosenCrimeCount);
+            $('#total-crimes').text('Total in area: ' + crimeCount);
+            $('#crime-stats-row').show();
+        });
+        // END OF AJAX SEQUENCE, AND FUNCTION
 
     }
 
