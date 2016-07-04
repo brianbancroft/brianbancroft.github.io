@@ -68,3 +68,7 @@ li {
 }
 
 #mapid { height: 450px; }
+
+.leaflet-popup-content {
+  color: #111;
+}
