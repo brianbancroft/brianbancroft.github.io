@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:3000/investment_report -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Investment Report</title>
+    <link href="./index_files/css" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Josefin Sans';
+        color: #222;
+        text-align: center;
+        font-size: 28px;
+      }
+      h2 {
+        font-family: Mallory,sans-serif;
+        margin-left: 60px;
+      }
+      th, td {
+        font-family: Mallory,sans-serif;
+      }
+      .page-wrapper {
+        width: 8.5in !important;
+        height: 11in !important;
+        top: 0;
+        position: absolute;
+        padding: 0;
+        margin: 0.2in;
+      }
+      .header {
+        height: 5%;
+        overflow: hidden;
+      }
+      .report-container {
+        margin: 2% 3% 4% 3%;
+        height: 94%;
+        width: 94%;
+      }
+
+      .content {
+        .background-color: white;
+        height: 85%;
+      }
+      .copy {
+        padding: 10px 30px;
+        margin-top: 10px;
+      }
+      .footer {
+        background-color: #eef;
+        border-top: 2px solid #111;
+        height: 62px;
+        position: relative;
+        bottom: -45px;
+      }
+      .disclaimer-content {
+        margin: 0 30px;
+      }
+      .disclaimer-content h3 {
+        text-align: center;
+      }
+      .disclaimer {
+        font-size: 8.5pt;
+        display: block;
+        line-height: 13px;
+        font-style: italic;
+      }
+      .content-row {
+        display: block;
+      }
+      .assumptions {
+        height: 313px;
+      }
+      .column {
+        width: 45.6%;
+        display: inline-block;
+        min-height: 100px;
+      }
+      .left-column {
+      }
+      .right-column {
+        margin-left: 2.5%;
+      }
+      .column-item-container {
+        width: 400px;
+        height: 400px;
+        margin: 10px auto;
+      }
+      .vertical-table {
+        border-spacing: 8px 2px;
+        margin-left: 60px;
+        margin-top: 40px;
+      }
+      .vertical-table tr th {
+        min-width: 130px;
+        padding-right: 20px;
+        text-align: right;
+        font-size: 14px;
+      }
+      .vertical-table tr td {
+        color: black;
+        min-width: 80px;
+        text-align: right;
+        border-left: 2px solid black;
+        padding-left: 10px;
+        font-size: 13px;
+      }
+      .vertical-table tr td.null {
+        border-left: none;
+      }
+      th.assumption-conclusion {
+        font-size: 14pt;
+        font-weight: 700;
+        padding-top: 10px;
+      }
+      td.assumption-conclusion {
+        font-size: 14pt;
+        font-weight: 700;
+        padding-top: 10px;
+      }
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+
+      .vertical-horizontal-table th {
+        min-width: 120px;
+      }
+      .vertical-horizontal-table td {
+        min-width: 110px;
+        padding-left: 10px;
+        text-align: right;
+      }
+      .vertical-horizontal-table th.left-title {
+        min-width: 300px;
+        text-align: right;
+        background-color: white;
+        border-right: 10px;
+        padding-right: 20px;
+        font-size: 11pt;
+        font-weight: 500; 
+      }      
+      .deduction {
+        color: red;
+      }
+      tr.table-header {
+        text-align: left;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .gap-top th, .gap-top td{
+        padding-top: 8px;
+      }
+      tr.border-bottom th, tr.border-bottom td {
+        border-bottom: 3px solid black;
+      }
+      .bottom-line th {
+        font-size: 20px;
+      }
+      .bottom-line td {
+        font-size: 18px;
+        padding-left: 12px;
+        font-weight: bold;
+      }
+      .left-category-title {
+        text-align: left;
+        font-size: 19px;
+        font-weight: 500;
+      }
+      .watermark {
+        position: absolute;
+        top: 5.9in;
+        opacity: 0.2;
+        font-size: 52pt;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+      }
+      .chart-container {
+        width: 384px;
+        height: 290px;
+        position: absolute;
+        top: 238px;
+        left: 389px;
+      }
+    </style>
+  </head> 
+  <body>
+    <script src="./index_files/moment.js"></script>  
+    <script src="./index_files/Chart.js"></script>
+
+    <div class="page-wrapper">
+      <div class="header">
+        <h1>Condobees Investment Report for Alter Condos</h1>
+      </div>
+      <div class="content">
+        <div class="watermark"><img src="./index_files/condobee_logo.png" ,="" width="800px" height="200px" alt="Condobees.com"></div>
+        <div class="content-row">
+          <div class="copy"><p>
+              Here, we try to explain that condo investment is right for the client. Bacon ipsum dolor amet jowl capicola filet mignon pancetta boudin. Picanha tenderloin spare ribs swine beef ribs jowl fatback shoulder ham hock pork belly tongue venison. Capicola pork pig beef ribs, ribeye turkey t-bone pork belly. Jerky tongue short ribs bresaola.
+                </p></div>
+        </div>
+        <div class="content-row assumptions ">
+          <h2>Investment Assumptions</h2>
+          <table class="vertical-table">
+            <tbody><tr><th>Purchase Price:</th><td>$296,000</td></tr>
+            <tr><th>Down Payment:</th><td>20%</td></tr>
+            <tr><th>Loan Interest Rate<sup>ǂ</sup>:</th><td>2.4%</td></tr>
+            <tr><th>Amortization Length:</th><td>30 Years</td></tr>  
+            <tr><th>Rental Income:</th><td>$1,805.70</td></tr>
+            <tr><th>Annual Rent Increase:</th><td>2.0%</td></tr>
+            <tr><th>Unit Size:</th><td>750 Sqft</td></tr>  
+            <tr>
+              <th>Maintenance Rate:</th><td>$0.54/Ft<sup>2</sup></td>
+            </tr>
+            <tr>
+              <th class="assumption-conclusion">Loan Amount:</th><td class="assumption-conclusion">$380,000</td><th></th><td class="null"></td>
+            </tr> 
+          </tbody></table>
+          <div class="chart-container"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;" src="./index_files/saved_resource.html"></iframe>
+            <canvas id="neighbourhood-chart" width="384" height="290" style="display: block; width: 384px; height: 290px;"></canvas>
+          </div>
+        </div>
+        <div class="content-row">
+          <h2>Investment Cashflows</h2>
+        </div>
+        <div class="content-row">
+          <table class="vertical-horizontal-table">
+            <tbody><tr class="table-header border-bottom">
+              <th class="left-title"></th>
+              <th>Year One</th>
+              <th>Year Two</th>
+              <th>Year Three</th>
+            </tr>
+            <tr class="gap-top">
+              <th class="left-title">Monthly Rent Income</th>
+              <td>$1,805.70</td>
+              <td>$1,841.82</td>
+              <td>$1,878.65</td>
+            </tr>
+            <tr class="border-bottom gap-top">
+            <th class="left-category-title">Monthly Expenses</th>
+            <td></td><td></td><td></td>
+            </tr>
+            <tr class="gap-top">
+              <th class="left-title">Property Taxes<sup>*</sup></th>
+              <td class="deduction">
+                $168.97
+              </td>
+              <td class="deduction">
+                $168.97
+              </td>
+              <td class="deduction">
+                $168.97
+              </td>
+            </tr>
+            <tr class="">
+              <th class="left-title">Maintenance Fees</th>
+              <td class="deduction">$405.00</td>
+              <td class="deduction">$405.00</td>
+              <td class="deduction">$405.00</td>            
+            </tr>
+            <tr class="">
+              <th class="left-title">Mortgage Payment</th>
+              <td class="deduction">$921.93</td>
+              <td class="deduction">$921.93</td>
+              <td class="deduction">$921.93</td>            
+            </tr>
+            <tr class="">
+              <th class="left-title">Net Expenses</th>
+              <td class="deduction">$1,495.90</td>
+              <td class="deduction">$1,495.90</td>
+              <td class="deduction">$1,495.90</td>            
+            </tr>
+            <tr class="border-bottom gap-top">
+              <th class="left-category-title">Monthly Return</th>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr class="gap-top">
+              <th class="left-title">Net Return after Expenses</th>
+              <td>$309.80</td>
+              <td>$345.92</td>
+              <td>$382.75</td>            
+            </tr>
+            <tr class="border-bottom gap-top">
+              <th class="left-category-title">Annual Returns</th>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr class="gap-top">
+              <th class="left-title">Income from Rent</th>
+              <td>$21,668.43</td>
+              <td>$22,101.79</td>
+              <td>$22,543.83</td>          
+            </tr>
+            <tr class="">
+              <th class="left-title">Mortgage Principal Pay Down</th>
+              <td class="deduction">
+                -$5,517.31
+                
+              </td>
+              <td class="deduction">
+                -$5,651.19
+                
+              </td>
+              <td class="deduction">
+                -$5,788.32
+              </td>            
+            </tr>
+            <tr class="border-bottom">
+            <th class="left-title">Cash Flow after Expenses</th>
+              <td>$3,717.63</td>
+              <td>$4,151.00</td>
+              <td>$4,593.03</td>             
+            </tr> 
+            <tr class="gap-top bottom-line">
+              <th class="left-title">Net Return on Investment</th>
+              <td>7.1%</td>
+              <td>7.8%</td>
+              <td>8.6%</td>            
+            </tr>
+
+          </tbody></table>
+        </div>
+        <div class="content-row">
+          <div class="copy">
+           As you can see, it's possible to own your own money-generating property for an upfront-investment of _ dollars. This is much higher than _, or _. 
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="disclaimer">
+          Disclaimer: This calculator is for illustrative purposes only. No guarantee is made to the actual result of any investment which can vary due to a number of reasons. The numbers are deemed correct but CondoBees.com accepts no responsibility as to their accuracy.<br>
+          *: Property taxes derived from the <a href="http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=25d4d85a42c74510VgnVCM10000071d60f89RCRD&amp;vgnextchannel=63b0ff0e43db1410VgnVCM10000071d60f89RCRD">2016 Property Tax Rates for the City of Toronto</a><br>
+          ǂ: Interest rate is determined by the average rate for a five-year term in the Toronto area by most banks.
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      var data = [{"x":"2015-01-03","y":"1781.9371584699453552"},{"x":"2015-02-01","y":"1782.0737704918032787"},{"x":"2015-03-02","y":"1771.7868852459016393"},{"x":"2015-04-01","y":"1772.4918032786885246"},{"x":"2015-05-01","y":"1764.0300546448087432"},{"x":"2015-06-01","y":"1757.9180327868852459"},{"x":"2015-07-03","y":"1744.5054644808743169"},{"x":"2015-08-01","y":"1754.4234972677595628"},{"x":"2015-09-02","y":"1774.5081967213114754"},{"x":"2015-10-01","y":"1802.8551912568306011"},{"x":"2015-11-02","y":"1802.8278688524590164"},{"x":"2015-12-01","y":"1805.7021857923497268"}];
+      window.chart_data = data;
+
+      if (data.length > 0) {
+        var mLabels = window.chart_data.map(function (o) { return moment(o['x'], 'YYYY-MM-DD') });
+        var mData = window.chart_data.map(function (obj) {
+          var rObj = {};
+          rObj['x'] = moment(obj['x'], 'YYYY-MM-DD');
+          rObj['y'] = Number(obj['y']).toFixed(0);
+          return rObj
+        });
+      var chartData = {
+          labels: mLabels,
+          datasets: [{
+            label: '12-Month Rolling Average - Comparable Rentals',
+            data: mData
+          }]
+        };
+      renderChart(chartData)
+      };
+
+      function renderChart (chartData) {
+
+        function addCommas (nStr) {
+          var x = String(nStr).split('.');
+          var x1 = x[0];
+          var x2 = x.length > 1 ? '.' + x[1] : '';
+          var rgx = /(\d+)(\d{3})/;
+          while (rgx.test(x1)) {
+            x1 = `$${x1.replace(rgx, '$1' + ',' + '$2')}`
+          };
+          return x1 + x2;
+        };
+        var ctx = document.getElementById("neighbourhood-chart");
+        Chart.defaults.global.defaultFontColor = '#111';
+        Chart.defaults.global.defaultFontSize = 14;
+        Chart.defaults.global.defaultFontFamily = 'Helvetica';
+        Chart.defaults.global.title.display = true;
+        Chart.defaults.global.title.position = 'center';
+        Chart.defaults.global.title.fontSize = 12;
+        Chart.defaults.global.legend.display = false;
+        Chart.defaults.global.tooltips.enabled = false;
+        Chart.defaults.global.maintainAspectRatio = false;
+        Chart.defaults.global.responsive = true;
+        let dataSettings = {
+          fill: false,
+          lineTension: 0.1,
+          pointRadius: 0,
+          spanGaps: false,
+          skipLabels: 11,
+          backgroundColor: 'rgba(75,192,192,0.4)',
+          borderColor: '#333',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter'
+        };
+
+        var dSet = chartData.datasets[0];
+        var newObj = Object.assign(dSet, dataSettings);
+        new Chart(ctx, {
+          type: 'line',
+          data: chartData,
+          options: {
+            animation: false,
+            scales: {
+              tooltipFormat: 'MMM YYYY',
+              xAxes: [{
+                type: 'time',
+                time: {
+                  displayFormats: {
+                    quarter: 'MMM YYYY'
+                  },
+                  tooltipFormat: 'MMM YYYY'
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  userCallback: function (value, index, values) {
+                    return addCommas(value)
+                  }
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Average Monthly Rent in Area'
+                }
+              }]
+            }
+          }
+        });
+      };
+    </script>
+  
+</body></html>
