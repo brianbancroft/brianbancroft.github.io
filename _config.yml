@@ -1,20 +1,28 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+title: Brian Bancroft
+description: GIS, Geography, Rails, Vue, Javasript.
 
-# Site settings
-
-title: brianbancroft.ca
-email: hello@brianbancroft.ca
-description: Web and Desktop Development, Calculations, Dataviz, Logic. This is a
+url: brianbancroft.ca
 baseurl: ""
-url: "brianbancroft.github.io" # the base hostname & protocol for your site
-twitter_username: brian_bancroft
-github_username:  brianbancroft
-linkedin_username: geobrian
+paginate_path: "blog/page:num/"
+permalink: blog/:title/
 
-# Build settings
 markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 5
+
+navigation:
+ - title: Home
+   url: /index.html
+ - title: About
+   url: /about
+ - title: Contact
+   url: /contact
+
+social:
+   github: brianbancroft
+   twitter: brian_bancroft
+   facebook: 
+   email: hello@brianbancroft.ca
+
+google_analytics: "UA-89654601-1"

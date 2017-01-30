@@ -1,15 +1,8 @@
 ---
-layout: page
-title: About
-permalink: /about/
+layout: default
+title: Brian Bancroft
 ---
 
-## What is this thing about anyway?
-
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+## CV's
+ - <a href="/assets/Brian Bancroft CV - Dev.pdf">Development</a>
+ - <a href="/assets/Brian Bancroft CV - GIS.pdf">Geography/GIS</a>
