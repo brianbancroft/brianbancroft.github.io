@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "GIS Site Mapping Example"
-date:   2017-01-15
+date:   2016-03-25
 image: 'sitemap.png'
 ---
 
