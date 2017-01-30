@@ -1,0 +1,28 @@
+title: Brian Bancroft
+description: GIS, Geography, Rails, Vue, Javasript.
+
+url: brianbancroft.ca
+baseurl: ""
+paginate_path: "blog/page:num/"
+permalink: blog/:title/
+
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 5
+
+navigation:
+ - title: Home
+   url: /index.html
+ - title: About
+   url: /about
+ - title: Contact
+   url: /contact
+
+social:
+   github: brianbancroft
+   twitter: brian_bancroft
+   facebook: 
+   email: hello@brianbancroft.ca
+
+google_analytics: "UA-89654601-1"
