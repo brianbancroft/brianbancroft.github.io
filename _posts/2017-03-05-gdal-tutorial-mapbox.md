@@ -22,7 +22,7 @@ This tutorial should take 40 minutes, except for the setup. That experience will
 
 ## First, Obtaining the Data
 
-The Census of 2016 was said to be one of the most succesful census actions in Canadian history, given both a culture that wanted to be part of it, as well as a solid UI for the online portions (of which, I submitted mine through my smartphone). There is a release schedule, and the first bits of data have been released into the wild!
+The Census of 2016 was said to be one of the most successful census actions in Canadian history, given both a culture that wanted to be part of it, as well as a solid UI for the online portions (of which, I submitted mine through my smartphone). There is a release schedule, and the first bits of data have been released into the wild!
 
 ### The Census Data
 
@@ -32,23 +32,23 @@ Do the following to get all the data:
 
 To access the data, click on the link _Download complete geographic level_:
 
-![alt text](./screencaps/download_location.PNG "Click on the link below Download complete geographic level")
+![alt text](./assets/images/gdal_tutorial/download_location.PNG "Click on the link below Download complete geographic level")
 
 Once there, you will find files that for all sorts of geographic sizes of region. We want both somthing with the smallest area possible for the most detailed map, as well as something that contains a neighbourhood name. So we want to download both the files for the _2013 Electoral Districts_, _as well as dissemination areas_. 
 
-![alt text](./screencaps/download_files.PNG "Choose the CSV files for dissemination areas as well as electoral districts")
+![alt text](./assets/images/gdal_tutorial/download_files.PNG "Choose the CSV files for dissemination areas as well as electoral districts")
 
 
 ### The Census Geodata
 
 We have the raw numbers, as well as the names of the places of the raw numbers. Next, we want to obtain the geographic boundaries, so we can put these numbers on a map. [Visit this page](https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm). We want the geography for the dissemination areas as that is what we are mapping. For the sake of this demo and to those who wish to have a look at the data visually, we will download the data through a Shapefile format, which is an open standard we can use in most GIS packages, including the free QGIS.
 
-![alt text](./screencaps/download_geo.PNG)
+![alt text](./assets/images/gdal_tutorial/download_geo.PNG)
 *A Warning*: This is going to be a large download, if you're not familiar with spatial data. It contains all the geographic boundary definitions as well as the attributes for every tiny dissemination area in Canada. Canada is a big place. Expect a 90MB download. 
 
 Once downloaded, unzip it and place the files in a working directory near the csv files. Personally, I have it to something like the following:
 
-![alt text](./screencaps/file_structure.PNG)
+![alt text](./assets/images/gdal_tutorial/file_structure.PNG)
 
 ## Configuring the tools
 
@@ -74,7 +74,7 @@ If you're using Ubuntu, or another form of Linux, I recommend reading [Sara Safa
 
 
 ### GDAL - Test whether you have it
-To test whether you've succesfully downloaded GDAL, which we will use to join and merge the data, simpilly run this command:
+To test whether you've succesfully downloaded GDAL, which we will use to join and merge the data, simpily run this command:
 ```
 gdalinfo --version
 ```
@@ -86,7 +86,7 @@ In order to alter the CSV, you're going to need to have a spreadsheet or text ed
 
 ### A Mapbox Account
 
-In order to display the data with 3d extrusions like the map authours have above, you're going to need a Mapbox account. [Sign up here](https://www.mapbox.com/studio/signup/)
+In order to display the data with 3d extrusions like the map authors have above, you're going to need a Mapbox account. [Sign up here](https://www.mapbox.com/studio/signup/)
 
 ### A Text Editor for HTML Coding
 
@@ -102,7 +102,7 @@ I've listed these over others as they are all extendable, but start out as light
 
 ### CSV Data
 
-You have the data in a Comma Seperated Values (CSV) format, which is a spreadsheet format based on a textfile. The first line are the headings, and the remainder contains the data. Each column is seperated by a comma, which gives the name of the format. In order to set the data up, you need to launder it a bit. 
+You have the data in a Comma Separated Values (CSV) format, which is a spreadsheet format based on a text file. The first line are the headings, and the remainder contains the data. Each column is separated by a comma, which gives the name of the format. In order to set the data up, you need to launder it a bit. 
 
 #### Add a csvt file
 
@@ -118,13 +118,13 @@ In this case, I used the following:
 ### GeoData
 
 
-Navagate to your directory, and type in the following command:
+Navigate to your directory, and type in the following command:
 
 `ogrinfo -so -al lda_000b16a_e.shp`
 
 If successful, you should see something like this:
 
-![](./screencaps/ogr_info.PNG)
+![](./assets/images/gdal_tutorial/ogr_info.PNG)
 
 ### Projecting the file 
 
@@ -132,7 +132,7 @@ If successful, you should see something like this:
 
 ### Selecting the data's geographic extent
 
-First, to make this map, we need to create an extent to which we can clip, or subset the data from the entirity of Canada. For my map, I plan on choosing southern Vancouver Island. To create fast extents, I recommend using geojson.io, which generates geojson files based on a map which you may draw on. If you want to learn  more about GeoJSON, I recommend checking out [@lyzidiamond's](http://twitter.com/lyzidiamond) post on the subject ([link](https://libraries.io/github/lyzidiamond/learn-geojson)).
+First, to make this map, we need to create an extent to which we can clip, or subset the data from all of Canada. For my map, I plan on choosing southern Vancouver Island. To create fast extents, I recommend using geojson.io, which generates geojson files based on a map which you may draw on. If you want to learn  more about GeoJSON, I recommend checking out [@lyzidiamond's](http://twitter.com/lyzidiamond) post on the subject ([link](https://libraries.io/github/lyzidiamond/learn-geojson)).
 
 Here, I created the polygon on the map, then copied the resulting text to a new file, which I'll call `extent.geojson`. I then use ogr to clip the extent using the following command:
 `ogr2ogr -clipsrc extent.geojson subset_da.shp census_da-wgs84.shp`
@@ -149,9 +149,9 @@ To ensure a smooth transition, we want to know which field names to keep and whi
 
 `ogrinfo -so subset_da.shp subset_da`
 
-![](./screencaps/ogrinfo_field_names.png)
+![](./assets/images/gdal_tutorial/ogrinfo_field_names.png)
 
-there are a few colums here which we want to keep:
+there are a few columns here which we want to keep:
 
 - DAUID
 - PRUID
@@ -172,7 +172,7 @@ We should keep a note of these, as we will use these very shortly.
 ### Joining the CSV to the Geodata
 
 
-The next part is tricky. After sanatizing the column names in the CSV file, I used the following command to join the two files together: 
+The next part is tricky. After sanitizing the column names in the CSV file, I used the following command to join the two files together: 
 
 `ogr2ogr -sql "select subset_da.*, da.* from subset_da left join 'da.csv'.da on subset_da.DAUID = da.ID" test_output1.shp subset_da.shp`
 
@@ -180,7 +180,7 @@ There was still a bit of a challenge: The fields were being automatically conver
 ```
 Warning 6: Normalized/laundered field name: 'subset_da.CCSUID' to 'subset_d_6'
 ```
-This is problematic. The way to get around this is to name each field explcitly. 
+This is problematic. The way to get around this is to name each field explicitly. 
 
 `ogr2ogr -sql "select subset_da.DAUID, subset_da.PRUID, subset_da.PRNAME, subset_da.CDUID, subset_da.CSDUID, subset_da.ERUID, subset_da.ERNAME, subset_da.CTUID, subset_da.CTNAME, subset_da.CMAUID, subset_da.CMANAME, da.province, da.census_div, da.c_subdiv, da.pop_2016, da.priv_dwell from subset_da left join 'da.csv'.da on subset_da.DAUID = da.ID" test_output2.shp subset_da.shp`
 
@@ -191,7 +191,7 @@ Carrying out this using individual field names also isn't the way to go, but it 
 What we used there was SQL Aliases, which you can learn more about [here](https://www.tutorialspoint.com/sql/sql-alias-syntax.htm)
 
 If you have a desktop GIS, you can visually inspect the geometry of this data, as well as its content. In the screencap, I use QGIS which is open source and free:
-![](./screencaps/qgis_join_output.png)
+![](./assets/images/gdal_tutorial/qgis_join_output.png)
 
 If you want to do it straight from the command line, use the following command:
 
@@ -301,7 +301,7 @@ For the following, you're going to need something to serve your data. There are 
 
 To serve what you've built, go to the directory containing the HTML file, and type in either `serve` (if you're using the node server), or `python -m SimpleHTTPServer 3000` (for python users). 
 
-
+Once you have the command line server running, you should see something like [this!](./samples/gdal_tutorial/)
 
 ### What's next?
 

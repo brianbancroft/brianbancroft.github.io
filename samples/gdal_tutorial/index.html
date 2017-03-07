@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title></title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.css' rel='stylesheet' />
+        <style>
+            body { 
+                margin: 0;
+                padding: 0;
+                }
+            #map {
+                position: absolute;
+                top:0;
+                bottom:0;
+                width:100%;
+                }
+        </style>
+    </head>
+    <body>
+
+        <div id='map'></div>
+
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5iYW5jcm9mdCIsImEiOiJsVGVnMXFzIn0.7ldhVh3Ppsgv4lCYs65UdA';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/dark-v9',
+                center: [-123.4103734351262877, 48.437451890638886],
+                zoom: 13
+            });
+
+            map.on('load', function () {
+                map.addSource('population', {
+                    'type': 'geojson',
+                    'data': './area_population.geojson'
+                })
+                map.addLayer({
+                    'id': 'population',
+                    'type': 'fill-extrusion',
+                    'source': 'population',
+                    'paint': {
+                        'fill-extrusion-color': '#aaa', 
+                        'fill-extrusion-height': {
+                            'type': 'identity',
+                            'property': 'pop_2016'
+                        }, 
+                        'fill-extrusion-base': 0,
+                        'fill-extrusion-opacity': 0.6
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
