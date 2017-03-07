@@ -32,23 +32,23 @@ Do the following to get all the data:
 
 To access the data, click on the link _Download complete geographic level_:
 
-![alt text](./assets/images/gdal_tutorial/download_location.PNG "Click on the link below Download complete geographic level")
+![Download Location of the Geographic Data](../../assets/img/gdal_tutorial/download_location.PNG "Click on the link below Download complete geographic level")
 
 Once there, you will find files that for all sorts of geographic sizes of region. We want both somthing with the smallest area possible for the most detailed map, as well as something that contains a neighbourhood name. So we want to download both the files for the _2013 Electoral Districts_, _as well as dissemination areas_. 
 
-![alt text](./assets/images/gdal_tutorial/download_files.PNG "Choose the CSV files for dissemination areas as well as electoral districts")
+![Location of the DA's](../../assets/img/gdal_tutorial/download_files.PNG "Choose the CSV files for dissemination areas as well as electoral districts")
 
 
 ### The Census Geodata
 
 We have the raw numbers, as well as the names of the places of the raw numbers. Next, we want to obtain the geographic boundaries, so we can put these numbers on a map. [Visit this page](https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm). We want the geography for the dissemination areas as that is what we are mapping. For the sake of this demo and to those who wish to have a look at the data visually, we will download the data through a Shapefile format, which is an open standard we can use in most GIS packages, including the free QGIS.
 
-![alt text](./assets/images/gdal_tutorial/download_geo.PNG)
+![Location to download Geodata](../../assets/img/gdal_tutorial/download_geo.PNG)
 *A Warning*: This is going to be a large download, if you're not familiar with spatial data. It contains all the geographic boundary definitions as well as the attributes for every tiny dissemination area in Canada. Canada is a big place. Expect a 90MB download. 
 
 Once downloaded, unzip it and place the files in a working directory near the csv files. Personally, I have it to something like the following:
 
-![alt text](./assets/images/gdal_tutorial/file_structure.PNG)
+![File Structure](../../assets/img/gdal_tutorial/file_structure.PNG)
 
 ## Configuring the tools
 
@@ -124,7 +124,7 @@ Navigate to your directory, and type in the following command:
 
 If successful, you should see something like this:
 
-![](./assets/images/gdal_tutorial/ogr_info.PNG)
+![OGR SUCCESS](../../assets/img/gdal_tutorial/ogr_info.PNG)
 
 ### Projecting the file 
 
@@ -149,7 +149,7 @@ To ensure a smooth transition, we want to know which field names to keep and whi
 
 `ogrinfo -so subset_da.shp subset_da`
 
-![](./assets/images/gdal_tutorial/ogrinfo_field_names.png)
+![OGR Field Names](../../assets/img/gdal_tutorial/ogrinfo_field_names.png)
 
 there are a few columns here which we want to keep:
 
@@ -191,7 +191,7 @@ Carrying out this using individual field names also isn't the way to go, but it 
 What we used there was SQL Aliases, which you can learn more about [here](https://www.tutorialspoint.com/sql/sql-alias-syntax.htm)
 
 If you have a desktop GIS, you can visually inspect the geometry of this data, as well as its content. In the screencap, I use QGIS which is open source and free:
-![](./assets/images/gdal_tutorial/qgis_join_output.png)
+![](../../assets/img/gdal_tutorial/qgis_join_output.png)
 
 If you want to do it straight from the command line, use the following command:
 
@@ -301,7 +301,7 @@ For the following, you're going to need something to serve your data. There are 
 
 To serve what you've built, go to the directory containing the HTML file, and type in either `serve` (if you're using the node server), or `python -m SimpleHTTPServer 3000` (for python users). 
 
-Once you have the command line server running, you should see something like [this!](./samples/gdal_tutorial/)
+Once you have the command line server running, you should see something like [this!](../../samples/gdal_tutorial/)
 
 ### What's next?
 
