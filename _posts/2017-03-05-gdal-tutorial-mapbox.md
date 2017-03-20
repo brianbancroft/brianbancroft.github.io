@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Census Mapping and GDAL - A tutorial"
-date:   2017-01-15
+date:   2017-03-05
 image: './gdal_tutorial/gdal_tutorial.png'
 ---
 
