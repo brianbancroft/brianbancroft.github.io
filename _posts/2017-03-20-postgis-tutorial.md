@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Loading Tables to PostGIS Through QGIS on a Mac"
-date:   2017-03-22
+date:   2017-03-20
 image: './qgis_pg_tutorial/qgis_logo.png'
 ---
 One of the older truths is that the Apple platform wasn't the best fit for GIS and mapping. ESRI, the behemoth organization all GIS users know and _love_ doesn't have anything to offer on the platform. QGIS, until recently was adapted for the mac with love by [Kyngchaos](http://www.kyngchaos.com/software/qgis), but the experience wasn't nearly as strong as when I've used QGIS for Linux and Windows. This is a shame, because the Mac has been the platform of choice for developers and designers for sometime. Considering that GIS falls within those two trades, it's been a shame that apart from one small dilligent open source team, there has been no love for Macintosh GIS.
