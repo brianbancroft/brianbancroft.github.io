@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <title>A quick thing</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous">
+  </script>  
+  <script src="script.js"></script>
   </head>
   <body>
     <h1>A Quick sample chart</h1>
@@ -12,5 +17,15 @@
     <p>This is sample of something that the public, or a clever scientist can whip up, quickly, as part of a presentation, or a site that promotes their thesis.</p>
 
     <img class="sample-chart" src="http://dmas.uvic.ca/UserFileService?access=public&responseType=7&path=/user15356/search4377237/SaanichInletVENUSInstrumentPlatform_CTDA_CTD_SoundSpeed_20170331T000000Z_20170401T000000Z-clean_MinMaxAvgAuto.png" alt="Sample API Chart">
+
+
+    <p>In addition, there are other wonderful Chart API Endpoints that can, and should be documented:</p>
+
+    <p><em>http://dmas.uvic.ca/ScalarDataAPIService?user=&sensorid=16524&sitedeviceid=1194557&option=3&isClean=true&key=0&datefrom=11-Jul-2016%2000%3A00%3A00&dateto=19-Aug-2016%2000%3A00%3A00&plotpoints=53</em></p>
+
+    <div class="chart-container">
+        <canvas id="myChart" width="400", height="400"></canvas>
+    </div>
   </body>
+
 </html>
