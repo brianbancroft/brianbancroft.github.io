@@ -825,7 +825,7 @@ object {
 }
 
 .container {
-    max-width: 610px;
+    max-width: 75%;
     margin-left: auto;
     margin-right: auto;
     padding: 0 20px
@@ -916,7 +916,11 @@ a:hover {
 .noList {
     list-style: none;
     padding-left: 0;
-    margin-left: 0
+    margin-left: 0;
+    text-align: right;
+}
+.noList li {
+    padding-right: 20px;
 }
 
 dt {
@@ -1264,7 +1268,7 @@ dd {
         transform-origin: bottom left
     }
     .container {
-        max-width: 800px;
+        max-width: 75vw;
         margin-left: auto;
         margin-right: auto;
         padding: 0
@@ -1277,11 +1281,10 @@ dd {
     #home .posts,
     #home .pageTitle,
     #home .pagination {
-        width: 74.46809%;
+        width: 75vw;
         float: left;
-        margin-right: 2.12766%;
         float: none;
-        margin: 0 auto 1.5em
+        margin: 0 auto;
     }
     #home .pageTitle {
         margin: 2rem auto 1em
@@ -1445,4 +1448,9 @@ dd {
         float: right;
         margin-right: 0
     }
+}
+
+.twitter-tweet {
+    margin-left: auto;
+    margin-right: auto;
 }

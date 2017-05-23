@@ -4,11 +4,13 @@ title:  "Simple Network Maps using QGIS and Affinity Designer"
 date:   2017-05-21
 image: './network-map/network-map-cover.png'
 ---
-Today while out for a run, I was inspired by a tweet from Stephen Smith:
+Today while out for a run, I was inspired by a tweet from Stephen Smith, also known as [@themapsmith](http://twitter.com/themapsmith).
+
+Someone from within the United States Transit Authority released these simple network maps linking towns and cities in various US states via highway [(link)](https://www.transitauthorityfigures.com/projects/united-states-schematic-maps/). For sometime, I was trying to build a similar style of map, but of the Bike lanes and paths in Toronto, an impossible tasks as most of the nodes do not connect. This series inspired me to take a step back, and go with _baby_ steps. 
+
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr" style="margin-left:auto;margin-right:auto;">These maps have an awesome aesthetic by <a href="https://twitter.com/TransAuthFigs">@TransAuthFigs</a> <a href="https://t.co/XdHY7cLrvb">https://t.co/XdHY7cLrvb</a> <a href="https://t.co/CedhUFeKtO">pic.twitter.com/CedhUFeKtO</a></p>&mdash; Stephen R Smith (@TheMapSmith) <a href="https://twitter.com/TheMapSmith/status/866662561684611072">May 22, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Someone from within the United States Transit Authority released these simple network maps linking towns and cities in various US states via highway [(link)](https://www.transitauthorityfigures.com/projects/united-states-schematic-maps/). For sometime, I was trying to build a similar style of map, but of the Bike lanes and paths in Toronto, an impossible tasks as most of the nodes do not connect. This series inspired me to take a step back, and go with _baby_ steps. 
 
 This project took me about two hours to put together, and I'm convinced that knowing what I did, it can take you less. The following is how I put this together.
 
