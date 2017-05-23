@@ -41,7 +41,7 @@ Once you have the data setup, you need to use the QGIS Print Composer. This was 
 
 I find that when I'm building something, it's always a good call to make initial sketches. I tend to ignore them, or even drop them as soon as I understand where I am going, but they're instrumental in allowing me the time to understand what it is that I must do. The first thing was the graphical concept. How was I to build this concept. Here, you can see me doodling with markers. It's an awful sketch, but it told me to keep the concept down to three or four colours, max. No shadows. 
 
-![Bad colouring by brian bancroft, and a roadplan](../../assets/img/network-map/graphic-conept.png)
+![Bad colouring by brian bancroft, and a roadplan](../../assets/img/network-map/graphic-concept.png)
 
 The next sketch was more important: Deciding which nodes go on, and how they connect. As a choice, I wanted to go with big towns, and nodes that break up the lines in places where there aren't any major towns. 
 
@@ -73,6 +73,6 @@ Currently, my favorite graphic colour selector is [Adobe Colour](https://color.a
 
 ## THE RESULTS
 
-![](../../assets/img/conic_map_final.png)
+![](../../assets/img/network-map/conic_map_final.png)
 
 If you're in a rut, I recommend this as a way of getting back into the cartography game. It's so fast and colourful to pump out a simple network map, that it may be enough to motivate you to learn that new, awesome thing. Until next time, have fun and draw nodes!
