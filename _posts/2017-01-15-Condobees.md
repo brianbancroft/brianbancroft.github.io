@@ -15,4 +15,7 @@ This project had me work in the following areas:
   4. Javascript and ES6 Interaction
   5. PostGIS. 
 
-  # Sites: <a href="vipcondolist.ca">Staging Server</a> - <a href-"condobees.com">Site when it is up</a>
+This was my first crack at Rails and VueJS, and needs a significant design overhaul. I feel that the UI is decent, but there are elements that could stand to be so much better. Since then, I've learned how to carry out e2e testing using selenium, as well as creating better tests in Minispec, RSpec (my preferred choice), and Mocha.
+
+## Sites
+  [Condobees](http://condobees.com)
