@@ -7,7 +7,7 @@ title: Contact Brian
   <h1 class="pageTitle">Get in touch!</h1>
   <div class="contactContent">
     <p class="intro">I'd love to get acquanted with your project!.</p>
-    <p>I seek employment as a Junior developer in the GTA. Specifically, I hunt for a team enviornment where I can code and learn alongside the best in the industry. Is this you? </p>
+    <p>Have a question? Need a little bit of help with something on your own? Contact me, and I'd be happy to help you out!</p>
   </div>
   <form action="http://formspree.io/hello@brianbancroft.ca" method="POST">
     <label for="name">Name</label>    
